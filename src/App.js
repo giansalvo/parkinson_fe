@@ -2,8 +2,10 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-// import "./styles.css"
+import fileDownload from 'js-file-download'
+
 import "./App.css"
+
 import logo_abinsula from './images/abinsula_logo.png';
 import logo_uniss from './images/uniss_logo.png';
 import logo_project from "./images/project_logo.svg"
@@ -15,6 +17,7 @@ function App() {
 
     const [file, setFile] = useState(null);
     const [fileDataURL, setFileDataURL] = useState(null);
+    const [prediction, setPrediction] = useState(null);
 
     const [fields, setFields] = useState({
         image: null,
@@ -26,6 +29,8 @@ function App() {
         user_id: 1});
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+
+    // var FileSaver = require('file-saver');
 
     const changeHandler = (e) => {
         const file = e.target.files[0];
@@ -79,11 +84,18 @@ function App() {
                 headers: {
                     "Content-type": "multipart/form-data",
                 },
+                responseType: "arraybuffer",
             }
         )
         .then((res) => {
-            console.log(`Success` + res);
-           
+            // console.log("The request was successfull");
+            // console.log(res.data)
+            
+            var bytes = new Uint8Array(res.data);
+            const blob = new Blob( [ bytes ] );
+            const url = URL.createObjectURL( blob );
+            setPrediction(url);
+            // fileDownload(prediction, "pippo.jpg")
         })
         .catch((err) => {
             console.log("Error: " + err);
@@ -93,7 +105,7 @@ function App() {
     return (
       <>
         <header className="header">
-            <img src = {logo_project} height="75" alt="project logo"/>
+            <img src = {logo_project} height="30" alt="project logo"/>
           Parkinson's Project
         </header>
         <div class="row">
@@ -138,19 +150,21 @@ function App() {
                 {fileDataURL ?
                 <p className="img-preview-wrapper">
                 {
-                    <img src={fileDataURL} alt="preview" />
+                    <img src={fileDataURL} width="100%" alt="preview" />
                 }
                 </p> : <img src = {image_placeholder} width="100%" alt="placeholder"/>}
             </div>
             <div class="column">
                 <h2>Column 3</h2>
                 <p>Some text..</p>
-                <img src = {image_placeholder} width="100%" alt="placeholder"/>
+                {/* <img src = {image_placeholder} width="100%" alt="placeholder"/> */}
+                
+                <img src = {prediction} width="100%" alt="placeholder"/>
             </div>
         </div>
         <footer className="footer">
-            <img src={logo_uniss} height="75" alt="UNISS logo"/>
-            <img src={logo_abinsula} height="75" alt="Abinsula logo"/>
+            <img src={logo_uniss} height="50" alt="UNISS logo"/>
+            <img src={logo_abinsula} height="50" alt="Abinsula logo"/>
         </footer> 
     </>
   );
