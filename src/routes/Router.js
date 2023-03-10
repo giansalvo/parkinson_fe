@@ -1,7 +1,7 @@
 import { BrowserRouter, Switch } from "react-router-dom";
 import { useHistory, Route } from 'react-router'
 import Prediction from "../pages/Prediction";
-
+import SignIn from "../pages/SignIn";
 
 
 const Router = () => {
@@ -15,7 +15,7 @@ const Router = () => {
             <Switch>
 
                 {/* <PublicRoute exact path="/" component={HomePage} /> */}
-                <Route path="/" component={Prediction} />
+                <Route path="/" component={SignIn} />
 
                 {/* <PublicRoute path='/login/:type' component={LoginPage} />
                 <PublicRoute path='/register/:type' component={RegisterPage} />
