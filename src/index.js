@@ -7,16 +7,6 @@ const rootElement = document.getElementById("root");
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <p
-      style={{
-        marginTop: "100px",
-        marginBottom: "50px",
-        textAlign: "center",
-        width: "100%",
-        fontWeight: "bold"
-      }}
-    >
-    </p>
   </React.StrictMode>,
   rootElement
 );

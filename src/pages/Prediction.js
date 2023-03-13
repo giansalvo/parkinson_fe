@@ -5,15 +5,16 @@ import { useForm } from "react-hook-form";
 import fileDownload from 'js-file-download'
 
 import "./Prediction.css"
+import {Header} from "../components/shared/Header/Header";
 
-import logo_abinsula from '../images/abinsula_logo.png';
-import logo_uniss from '../images/uniss_logo.png';
-import logo_project from "../images/project_logo.svg"
 import image_placeholder from "../images/image_placeholder.png"
+import { Footer } from "../components/shared/Footer/Footer";
 
 const imageMimeType = /image\/(png|jpg|jpeg)/i;
 
 function Prediction() {
+
+  console.log("Prediction")
 
     const [file, setFile] = useState(null);
     const [fileDataURL, setFileDataURL] = useState(null);
@@ -103,68 +104,65 @@ function Prediction() {
     };
 
     return (
-      <>
-        <header className="header">
-            <img src = {logo_project} height="30" alt="project logo"/>
-          Parkinson's Project
-        </header>
+      <div class="main_container">
+        <Header/>
         <div class="row">
-            <div class="column">
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <label for="image">Image: </label>
-            <input type="file" {...register("image", { required: true })} 
-                accept='.png, .jpg, .jpeg'
-                onChange={changeHandler} />
-            <br/>
-            <label for="title">Title: </label>
-            <br/>
-            <input {...register("title", { required: true })} />
-            <br/>
-            <label for="description">Description: </label>
-            <br/>
-            <input {...register("description", { required: true })} />
-            <br/>
-            <label for="user_id">User ID: </label>
-            <br/>
-            <input {...register("user_id", { required: true })} />
-            <br/>
-            <label for="patient_id">Patient ID: </label>
-            <br/>
-            <input {...register("patient_id", { required: true })} />
-            <br/>
-            <label for="patient_age">Patient age: </label>
-            <br/>
-            <input {...register("patient_age", { required: true })} />
-            <br/><br/>
+          <div class="column_form">
+              <form onSubmit={handleSubmit(onSubmit)}>
+                  <label for="image">Image: </label>
+                  <input type="file" {...register("image", { required: true })} 
+                      accept='.png, .jpg, .jpeg'
+                      onChange={changeHandler} />
+                  <br/>
+                  <label for="title">Title: </label>
+                  <br/>
+                  <input {...register("title", { required: true })} />
+                  <br/>
+                  <label for="description">Description: </label>
+                  <br/>
+                  <input {...register("description", { required: true })} />
+                  <br/>
+                  <label for="user_id">User ID: </label>
+                  <br/>
+                  <input {...register("user_id", { required: true })} />
+                  <br/>
+                  <label for="patient_id">Patient ID: </label>
+                  <br/>
+                  <input {...register("patient_id", { required: true })} />
+                  <br/>
+                  <label for="patient_age">Patient age: </label>
+                  <br/>
+                  <input {...register("patient_age", { required: true })} />
+                  <br/><br/>
 
-            {errors.title       && <span>This field is required</span>}
-            {errors.patient_id  && <span>This field is required</span>}        
-            {errors.user_id     && <span>This field is required</span>}        
-            
-            <input type="submit" />
-        </form>
-            </div>
-            <div class="column">
-                <h2>Patient image</h2>
-                {fileDataURL ?
-                <p className="img-preview-wrapper">
-                {
-                    <img src={fileDataURL} width="100%" alt="preview" />
-                }
-                </p> : <img src = {image_placeholder} width="100%" alt="placeholder"/>}
-            </div>
-            <div class="column">
-                <h2>Substantia Nigra (in red)</h2>
-                {/* <img src = {image_placeholder} width="100%" alt="placeholder"/> */}
-                
-                <img src = {prediction} width="100%" alt="placeholder"/>
-            </div>
+                  {errors.title       && <span>This field is required</span>}
+                  {errors.patient_id  && <span>This field is required</span>}        
+                  {errors.user_id     && <span>This field is required</span>}        
+                  
+                  <input type="submit" />
+              </form>
+          </div>
+          <div class="column_images">
+              <h2>Patient image</h2>
+              {fileDataURL ?
+              <div className="img-preview-wrapper">
+              {
+                  <img src={fileDataURL} width="100%" alt="preview" />
+              }
+              </div> : <img src = {image_placeholder} width="100%" alt="placeholder"/>}
+          </div>
+          <div class="column_images">
+              <h2>Substantia Nigra (in red)</h2>
+              {prediction ?
+              <div className="img-preview-wrapper">
+              {
+                  <img src={prediction} width="100%" alt="preview" />
+              }
+              </div> : <img src = {image_placeholder} width="100%" alt="placeholder"/>}
+          </div>
         </div>
-        <footer className="footer">
-            <img src={logo_uniss} height="50" alt="UNISS logo"/>
-            <img src={logo_abinsula} height="50" alt="Abinsula logo"/>
-        </footer> 
-    </>
+        <Footer/>
+    </div>
   );
 }
 

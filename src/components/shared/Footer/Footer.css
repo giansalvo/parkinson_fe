@@ -1,0 +1,16 @@
+/* Create three equal columns that floats next to each other */
+.footer_column {
+  width: 50.00%;
+   /* Should be removed. Only for demonstration */
+  display: flex;
+  justify-content: center;
+}
+
+/* Clear floats after the columns */
+.footer_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightblue;
+  height: 50px;
+}

@@ -1,0 +1,24 @@
+
+
+/* Create three equal columns that floats next to each other */
+.header_column {
+  width: 50.00%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Clear floats after the columns */
+.header_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightblue;
+  height: 50px; /* Should be removed. Only for demonstration */
+}
+
+.header_login{
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
+}

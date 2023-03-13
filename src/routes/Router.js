@@ -15,7 +15,7 @@ const Router = () => {
             <Switch>
 
                 {/* <PublicRoute exact path="/" component={HomePage} /> */}
-                <Route path="/" component={SignIn} />
+                <Route path="/" component={Prediction} />
 
                 {/* <PublicRoute path='/login/:type' component={LoginPage} />
                 <PublicRoute path='/register/:type' component={RegisterPage} />
