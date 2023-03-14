@@ -22,8 +22,9 @@ function Credits() {
         <Header/>
         <div class="message">
           <h2>
-          This research was developed by Giansalvo Gusinu, Claudia Frau, Prof. Giuseppe A. Trunfio, Prof. Paolo Solla and Prof. Leonardo A. Sechi.
+          This research was developed by Giansalvo Gusinu, Dr Claudia Frau, Prof. Giuseppe A. Trunfio, Prof. Paolo Solla and Prof. Leonardo A. Sechi.
           The website was realized in collaboration with Abinsula.
+          Some funds were obtained by project PON 2014-2020.
           </h2>
         </div>
         <Footer/>

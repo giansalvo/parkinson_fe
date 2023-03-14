@@ -16,11 +16,10 @@
 }
 
 .message {
-
-  text-align: center;
+  text-align: justify;
   align-items: center;
   justify-content: center;
   width: 50%;
   height: 50%;
-  background-color: pink;
+  margin: auto;
 }

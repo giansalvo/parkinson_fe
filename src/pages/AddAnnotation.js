@@ -114,11 +114,11 @@ function AddAnnotation() {
                 headers: {
                     "Content-type": "multipart/form-data",
                 },
-                responseType: "arraybuffer", // TODO ok/nok
+                responseType: "arraybuffer", // TODO useless?
             }
         )
         .then((res) => {
-          setResponseAPI("Request was succefull.") // TODO sendo ok to user
+          setResponseAPI("Request was succefull.")
           alert("Request was succefull.");
         })
         .catch((err) => {
