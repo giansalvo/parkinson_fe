@@ -1,8 +1,11 @@
 import { BrowserRouter, Switch } from "react-router-dom";
 import { useHistory, Route } from 'react-router'
+import HomePage from "../pages/HomePage";
 import Prediction from "../pages/Prediction";
-import SignIn from "../pages/SignIn";
-
+import SignIn from "../pages/SignIn"
+import Contact from "../pages/Contact"
+import About from "../pages/About"
+import NoPage from "../pages/NoPage"
 
 const Router = () => {
 
@@ -13,9 +16,13 @@ const Router = () => {
     return (
         <BrowserRouter>
             <Switch>
-
-                {/* <PublicRoute exact path="/" component={HomePage} /> */}
-                <Route path="/" component={Prediction} />
+                <Route exact path="/prediction/" component={Prediction} />
+                <Route exact path="/HomePage/" component={HomePage} />
+                <Route exact path="/SignIn/" component={SignIn} />
+                <Route exact path="/About/" component={About} />
+                <Route exact path="/Contact/" component={Contact} />
+                <Route path="*" component={NoPage} />
+                {/* <Route path="*" element={<NoPage />} /> */}
 
                 {/* <PublicRoute path='/login/:type' component={LoginPage} />
                 <PublicRoute path='/register/:type' component={RegisterPage} />

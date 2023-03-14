@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 import logo_project from "../../../images/project_logo.svg";
 import "./Header.css"
@@ -15,18 +16,18 @@ export function Header() {
                         <img src = {logo_project} height="30" alt="project logo"/>
                     </div>
                     <div>
-                        Home
+                        <Link to="/HomePage">Home</Link>
                     </div>
                     <div>
-                        About
+                    <Link to="/About">About</Link>
                     </div>
                     <div>
-                        Contact
+                    <Link to="/Contact">Contact</Link>
                     </div>
 
                 </div>
                 <div class="header_login">
-                    Login/Register
+                    <Link to="/SignIn">Login</Link>
                 </div>
             </div>
         </>

@@ -12,10 +12,10 @@ export function Footer() {
     return(
             <footer class="footer_row">
                 <div class="footer_column">
-                    <img src = {logo_abinsula} height="50" alt="Abinsula logo"/>
+                    <a href="https://www.uniss.it" target="_blank"><img src = {logo_uniss} height="50" alt="UNISS logo"/></a> 
                 </div>
                 <div class="footer_column">
-                    <img src = {logo_uniss} height="50" alt="UNISS logo"/>
+                    <a href="https://www.abinsula.com" target="_blank"><img src = {logo_abinsula} height="50" alt="Abinsula logo"/></a> 
                 </div>
             </footer>
     );
