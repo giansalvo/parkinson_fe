@@ -6,9 +6,9 @@ import "./HomePage.css"
 import {Header} from "../components/shared/Header/Header";
 import { Footer } from "../components/shared/Footer/Footer";
 
-function HomePage() {
+function Credits() {
 
-  console.log("HomePage")
+  console.log("Credits")
 
   const { handleSubmit, formState: { errors } } = useForm();
 
@@ -22,9 +22,8 @@ function HomePage() {
         <Header/>
         <div class="message">
           <h2>
-          Our aim is to design and build a CAD (Computer Aided Detection) system that could perform automatic PD detection as efficiently as a human expert.
-          In this study we developed a segmentation framework that uses only well-known, existing network model, with a good trade off between performance and resource consumption.
-          The framework is able to segment the Substantia Nigra, found in 90% of Parkinson's patients.
+          This research was developed by Giansalvo Gusinu, Claudia Frau, Prof. Giuseppe A. Trunfio, Prof. Paolo Solla and Prof. Leonardo A. Sechi.
+          The website was realized in collaboration with Abinsula.
           </h2>
         </div>
         <Footer/>
@@ -32,4 +31,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default Credits;
