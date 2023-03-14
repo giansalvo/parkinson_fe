@@ -122,7 +122,7 @@ function AddAnnotation() {
           alert("Request was succefull.");
         })
         .catch((err) => {
-          setResponseAPI("Request ERROR.") // TODO sendo ok to user
+          setResponseAPI("Request ERROR.")
           alert("Request ERROR.");
             console.log("Error: " + err);
         })
