@@ -29,6 +29,10 @@ function HomePage() {
             <input type="submit"/>          
             </form>
             <Link to="/Prediction">Prediction</Link>
+            <br/>
+            <Link to="/AddAnnotation">Add Annotation</Link>
+            <br/>
+            <Link to="/PageNotFound">Dashboard</Link>
           </h2>
         </div>
         <Footer/>
