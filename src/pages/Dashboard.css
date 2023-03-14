@@ -1,0 +1,46 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px
+}
+
+.dashboard_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.dashboard_message {
+  text-align: justify;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 50%;
+  margin: auto;
+}
+
+.scrollable {
+  max-height: 20;
+  overflow: scroll;
+  overflow-y: scroll;
+}
+
+.FixedHeightContainer
+{
+  float:right;
+  height: 250px;
+  width:250px; 
+  padding:3px; 
+    background:#f00;
+}
+.Content
+{
+  height:224px;
+  overflow:auto;
+  background:#fff;
+}

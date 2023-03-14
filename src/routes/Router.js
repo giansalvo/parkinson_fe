@@ -8,7 +8,7 @@ import About from "../pages/About"
 import Credits from "../pages/Credits"
 import NoPage from "../pages/NoPage"
 import AddAnnotation from "../pages/AddAnnotation"
-
+import Dashboard from "../pages/Dashboard"
 
 const Router = () => {
 
@@ -26,6 +26,8 @@ const Router = () => {
                 <Route exact path="/Contact/" component={Contact} />
                 <Route exact path="/Credits/" component={Credits} />
                 <Route exact path="/AddAnnotation/" component={AddAnnotation} />
+                <Route exact path="/Dashboard/" component={Dashboard} />
+                
                 <Route path="*" component={NoPage} />
                 {/* <Route path="*" element={<NoPage />} /> */}
 

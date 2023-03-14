@@ -32,7 +32,7 @@ function HomePage() {
             <br/>
             <Link to="/AddAnnotation">Add Annotation</Link>
             <br/>
-            <Link to="/PageNotFound">Dashboard</Link>
+            <Link to="/Dashboard">Dashboard</Link>
           </h2>
         </div>
         <Footer/>
