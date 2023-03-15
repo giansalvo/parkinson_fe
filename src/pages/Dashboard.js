@@ -19,22 +19,37 @@ function Dashboard() {
     console.log("Data:", data)
 
     axios
-    .post(
+    .get(
         "http://[::1]:8438/prediction/do-dashboard/",
         "",
         {
             headers: {
                 "Content-type": "multipart/form-data",
             },
-            responseType: "arraybuffer",
+            responseType: "application/JSON", // TODO verify thiss
         }
     )
     .then((res) => {
-        setContent("blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah... ..blah blah blah...")
-        alert("OK")
+        data = JSON.stringify(res);
+        const obj = JSON.parse(data);
+        // alert("Request succesfull.");
+        // console.log("obj.data title " + obj.data.predictions[0].title);
+
+        var lenght = Object.keys(obj.data.predictions).length;
+        console.log("lenght " + lenght)
+
+        var pObj = obj.data.predictions;
+        var text = "";
+        for(var i = 0; i < lenght; i++)
+        {
+              // console.log(pObj[i].title);
+              text += pObj[i].title + "\n";
+        }
+        setContent(text);
+
     })
     .catch((err) => {
-        alert("NOK")      
+        alert("Error during request.")      
         console.log("Error: " + err);
     })
   };
