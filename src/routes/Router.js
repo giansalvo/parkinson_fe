@@ -27,6 +27,7 @@ const Router = () => {
                 <Route exact path="/Credits/" component={Credits} />
                 <Route exact path="/AddAnnotation/" component={AddAnnotation} />
                 <Route exact path="/Dashboard/" component={Dashboard} />
+                <Route exact path="/" component={HomePage} />
                 
                 <Route path="*" component={NoPage} />
                 {/* <Route path="*" element={<NoPage />} /> */}
