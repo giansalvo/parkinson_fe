@@ -44,3 +44,9 @@
   overflow:auto;
   background:#fff;
 }
+
+.record {
+  display: flex;
+  justify-content: space-between;
+  
+}

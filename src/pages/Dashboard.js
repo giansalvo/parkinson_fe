@@ -33,19 +33,13 @@ function Dashboard() {
         data = JSON.stringify(res);
         const obj = JSON.parse(data);
         // alert("Request succesfull.");
-        // console.log("obj.data title " + obj.data.predictions[0].title);
 
         var lenght = Object.keys(obj.data.predictions).length;
         console.log("lenght " + lenght)
 
         var pObj = obj.data.predictions;
-        var text = "";
-        for(var i = 0; i < lenght; i++)
-        {
-              // console.log(pObj[i].title);
-              text += pObj[i].title + "\n";
-        }
-        setContent(text);
+        // console.log(pObj)
+        setContent(pObj);
 
     })
     .catch((err) => {
@@ -63,7 +57,25 @@ function Dashboard() {
         <div class="FixedHeightContainer">
             <h2>Click the button to get data</h2>
             <div class="Content">
-              {content}
+              <div>
+                patient title description age 
+              </div>
+              {content && content.map((record)=>(
+                <div class="record">
+                  <p>
+                    {record.patient_id}
+                  </p>
+                  <p>
+                    {record.title}
+                  </p>
+                  <p>
+                    {record.description}
+                  </p>
+                  <p>
+                    {record.patient_age}
+                  </p>
+                </div>
+              ))}
             </div>
         </div>
       <Footer/>
