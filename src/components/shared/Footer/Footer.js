@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import "./Footer.css"
 
@@ -13,13 +13,13 @@ export function Footer() {
     return(
             <footer class="footer_row">
                 <div class="footer_column">
-                    <a href="https://www.uniss.it" target="_blank"><img src = {logo_uniss} height="50" alt="UNISS logo"/></a> 
+                    <a href="https://www.uniss.it" target="_blank" rel="noreferrer"><img src = {logo_uniss} height="50" alt="UNISS logo"/></a> 
                 </div>
                 <div class="footer_column">
                     <img src = {logo_PON} height="50" alt="PON logo"/>
                 </div>
                 <div class="footer_column">
-                    <a href="https://www.abinsula.com" target="_blank"><img src = {logo_abinsula} height="50" alt="Abinsula logo"/></a> 
+                    <a href="https://www.abinsula.com" target="_blank" rel="noreferrer"><img src = {logo_abinsula} height="50" alt="Abinsula logo"/></a> 
                 </div>
             </footer>
     );

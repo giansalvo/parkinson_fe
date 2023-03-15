@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import fileDownload from 'js-file-download'
 
 import "./Prediction.css"
 import {Header} from "../components/shared/Header/Header";
