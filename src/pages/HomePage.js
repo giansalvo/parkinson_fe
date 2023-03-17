@@ -25,14 +25,6 @@ function HomePage() {
             Welcome! This website uses a Neural Network Artificial Intelligence to identify and highlight the Substantia Nigra found in Parkinson's patients.
             You can either try it with the following button or register to participate to the project and send new images. 
             In this case you will help us develop a more performant syste.
-            <form onSubmit={handleSubmit(onSubmit)}>
-            <input type="submit"/>          
-            </form>
-            <Link to="/Prediction">Prediction</Link>
-            <br/>
-            <Link to="/AddAnnotation">Add Annotation</Link>
-            <br/>
-            <Link to="/Dashboard">Dashboard</Link>
           </h2>
         </div>
         <Footer/>

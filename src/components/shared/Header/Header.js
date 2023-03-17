@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 
 import logo_project from "../../../images/SN.AI_logo.png";
 import "./Header.css"
@@ -10,29 +9,23 @@ export function Header() {
 
     return(
         <>
-            <div class="header_row">
-                <div class="header_column">
-                    <div>
-                        <Link to="/HomePage"><img src = {logo_project} height="60" alt="project logo"/></Link>
-                        
+            <div class="navbar">
+                <a href="/HomePage">Home</a>
+                <a href="/About">About</a>
+                <a href="/Contact">Contact</a>
+                <a href="/Credits">Credits</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Services
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="/Dashboard">Dashboard</a>
+                        <a href="/Prediction">Prediction</a>
+                        <a href="/AddAnnotation">Add Annotation</a>
                     </div>
-                    <div>
-                        <Link to="/HomePage">Home</Link>
-                    </div>
-                    <div>
-                    <Link to="/About">About Us</Link>
-                    </div>
-                    <div>
-                    <Link to="/Contact">Contacts</Link>
-                    </div>
-                    <div>
-                    <Link to="/Credits">Credits</Link>
-                    </div>
-                </div>
-                <div class="header_login">
-                    <Link to="/SignIn">Login</Link>
-                </div>
-            </div>
+                   </div>
+                <a class="header_login" href="/SignIn">Login</a>
+            </div> 
         </>
     );
 }

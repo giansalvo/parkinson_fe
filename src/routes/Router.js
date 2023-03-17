@@ -30,18 +30,6 @@ const Router = () => {
                 <Route exact path="/" component={HomePage} />
                 
                 <Route path="*" component={NoPage} />
-                {/* <Route path="*" element={<NoPage />} /> */}
-
-                {/* <PublicRoute path='/login/:type' component={LoginPage} />
-                <PublicRoute path='/register/:type' component={RegisterPage} />
-                <PublicRoute path='/reset/:type' component={ResetPage} />
-                <PublicRoute path='/reset-confirm/:type/:uid/:token' component={ResetConfirmPage} />
-
-                <PrivateRoute path='/app/dashboard' component={DashboardPage} />
-                <PrivateRoute path='/app/account' component={AccountPage} />
-
-                <PublicRoute path='*' component={NotFoundView} /> */}
-
             </Switch>
         </BrowserRouter>
     );

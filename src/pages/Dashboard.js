@@ -32,15 +32,10 @@ function Dashboard() {
     .then((res) => {
         data = JSON.stringify(res);
         const obj = JSON.parse(data);
-        // alert("Request succesfull.");
-
-        var lenght = Object.keys(obj.data.predictions).length;
-        console.log("lenght " + lenght)
-
+        // var lenght = Object.keys(obj.data.predictions).length;
+        // console.log("lenght " + lenght)
         var pObj = obj.data.predictions;
-        // console.log(pObj)
         setContent(pObj);
-
     })
     .catch((err) => {
         alert("Error during request.")      
@@ -54,30 +49,39 @@ function Dashboard() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <input type="submit" />
         </form>
-        <div class="FixedHeightContainer">
-            <h2>Click the button to get data</h2>
-            <div class="Content">
-              <div>
-                patient title description age 
-              </div>
+        {/* *** TABLE 1 **** */}
+        <h2>Click the button to get data</h2>
+        <table>
+            <theader>
+              <th>id</th>
+              <th>patient_id</th>
+              <th>title</th>
+              <th>description</th>
+              <th>age</th>              
+            </theader>
+            <tbody>
               {content && content.map((record)=>(
-                <div class="record">
-                  <p>
-                    {record.patient_id}
-                  </p>
-                  <p>
+                <tr>
+                <td>
+                  {record.id}
+                </td>
+
+                <td>
+                  {record.patient_id}
+                </td>
+                <td>
                     {record.title}
-                  </p>
-                  <p>
+                </td>
+                <td>
                     {record.description}
-                  </p>
-                  <p>
+                </td>
+                <td>
                     {record.patient_age}
-                  </p>
-                </div>
+                </td>
+                </tr>
               ))}
-            </div>
-        </div>
+            </tbody>
+        </table>
       <Footer/>
     </div>
   );
