@@ -9,11 +9,20 @@ export function Header() {
 
     return(
         <>
+    
             <div class="navbar">
+                <div>
                 <a href="/HomePage">Home</a>
+                </div>
+                <div>
                 <a href="/About">About</a>
+                </div>
+                <div>
                 <a href="/Contact">Contact</a>
+                </div>
+                <div>
                 <a href="/Credits">Credits</a>
+                </div>
                 <div class="dropdown">
                     <button class="dropbtn">Services
                         <i class="fa fa-caret-down"></i>
@@ -23,9 +32,11 @@ export function Header() {
                         <a href="/Prediction">Prediction</a>
                         <a href="/AddAnnotation">Add Annotation</a>
                     </div>
-                   </div>
-                <a class="header_login" href="/SignIn">Login</a>
-            </div> 
+                </div>
+                <div class="push">
+                <a  href="/SignIn">Login</a>
+                </div>
+            </div>
         </>
     );
 }

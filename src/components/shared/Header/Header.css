@@ -1,13 +1,10 @@
-
-.header_login{
-  width: 40%;
-  display:flex;
-  justify-content: flex-end;
-  padding-right: 10px;
+.push {
+  margin-left: auto;
 }
 
  /* Navbar container */
  .navbar {
+  display: flex;
   overflow: hidden;
   background-color: #333;
   font-family: Arial;
