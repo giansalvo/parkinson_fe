@@ -120,16 +120,19 @@ function Dashboard() {
                     {record.patient_age}
                 </td>
                 <td>
-                    {/* {record.visit_date} */}
+                    {record.sex}
                 </td>
                 <td>
-                    {/* {record.sex} */}
+                    { record.birth_date}
                 </td>
                 <td>
-                    {/* {record.sn_right} */}
+                    { record.visit_date}
                 </td>
                 <td>
-                    {/* {record.sn_left} */}
+                    {record.sn_right}
+                </td>
+                <td>
+                    {record.sn_left}
                 </td>
                 <td>
                     {/* {record.user name!!!} */}
