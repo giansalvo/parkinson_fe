@@ -157,11 +157,24 @@ function AddAnnotation() {
                   <label for="patient_id">Patient ID: </label>
                   <br/>
                   <input {...register("patient_id", { required: true })} />
-                  <br/>
-                  <label for="patient_age">Patient age: </label>
-                  <br/>
-                  <input {...register("patient_age", { required: true })} />
                   <br/><br/>
+                  <label for="visit_date">Visit Date</label>
+                  <input type="datetime-local" id="visit_date" name="visit_date"/>
+                  <br/><br/>
+                  <label for="birth_date">Birth Date</label>
+                  <input type="date" id="birth_date" name="birth_date"/>
+                  <br/><br/>
+                  <label for="sn_right">SN Right</label>
+                  <input type="number" id="sn_right" name="sn_right"/>
+                  <br/><br/>
+                  <label for="sn_left">SN Left</label>
+                  <input type="number" id="sn_left" name="sn_left"/>
+                  <br/><br/>
+                  <label for="sex">Sex</label>
+                  <select id="sex">
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                  </select>
 
                   {errors.title       && <span>This field is required</span>}
                   {errors.patient_id  && <span>This field is required</span>}        
