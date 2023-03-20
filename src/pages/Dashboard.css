@@ -70,3 +70,21 @@ th {
   background-color: lightpink;
   color: black;
 }
+
+.column_dashboard {
+    width: 50%;
+    padding: 2%;
+}
+  
+  
+/* Clear floats after the columns */
+.row_dashboard {
+    display: flex;
+    justify-content: space-between;
+    height: calc(100% - 100px);
+    margin-bottom: 20px;
+}
+
+.heighttext{
+    height:30px
+}

@@ -47,8 +47,9 @@ function Dashboard() {
   return (
     <div class="main_container">
       <Header/>
-      
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form  onSubmit={handleSubmit(onSubmit)}>
+      <div class="row_dashboard">
+        <div class="column_dashboard">
           Date of Visit
           <label for="visit_from">From:</label>
           <input type="date" id="visit_from" name="visit_from"/>
@@ -65,19 +66,23 @@ function Dashboard() {
             <option value="M">Male</option>
             <option value="F">Female</option>
           </select><br/><br/>
+          </div>
+        <div class="column_dashboard">
               SN Right
           <label for="sn_right_min">min</label>
-          <input type="number" id="sn_right_min" name="sn_right_min"/>
+          <input type="number" id="sn_right_min" name="sn_right_min" min="0"/>
           <label for="sn_right_max">max</label>
-          <input type="number" id="sn_right_max" name="sn_right_max"/>
+          <input type="number" id="sn_right_max" name="sn_right_max" min="0"/>
           <br/><br/>
           SN Left
           <label for="sn_left_min">min</label>
-          <input type="number" id="sn_left_min" name="sn_left_min"/>
+          <input type="number" id="sn_left_min" name="sn_left_min" min="0"/>
           <label for="sn_left_max">max</label>
-          <input type="number" id="sn_left_max" name="sn_left_max"/>
-          <br/><br/>
+          <input type="number" id="sn_left_max" name="sn_left_max" min="0"/>
+          </div>
+          </div>
           <input type="submit" />
+          
         </form>
         {/* *** TABLE 1 **** */}
         <h2>Click the button to get data</h2>

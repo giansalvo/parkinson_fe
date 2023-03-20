@@ -165,10 +165,10 @@ function AddAnnotation() {
                   <input type="date" id="birth_date" name="birth_date"/>
                   <br/><br/>
                   <label for="sn_right">SN Right</label>
-                  <input type="number" id="sn_right" name="sn_right"/>
+                  <input type="number" id="sn_right" name="sn_right" min="0"/>
                   <br/><br/>
                   <label for="sn_left">SN Left</label>
-                  <input type="number" id="sn_left" name="sn_left"/>
+                  <input type="number" id="sn_left" name="sn_left" min="0"/>
                   <br/><br/>
                   <label for="sex">Sex</label>
                   <select id="sex">
