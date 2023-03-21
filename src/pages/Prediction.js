@@ -114,7 +114,7 @@ function Prediction() {
                       accept='.png, .jpg, .jpeg'
                       onChange={changeHandler} />
                   <br/>
-                  <input type="submit" />
+                  <input class="button3" type="submit" />
               </form>
           </div>
           <div class="column_images">
