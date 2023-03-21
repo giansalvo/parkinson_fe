@@ -15,15 +15,6 @@
   height: 100vh;
 }
 
-.dashboard_message {
-  text-align: justify;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  height: 50%;
-  margin: auto;
-}
-
 .scrollable {
   max-height: 20;
   overflow: scroll;
@@ -67,7 +58,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 tr:hover {background-color: coral;}
 
 th {
-  background-color: lightpink;
+  background-color: lightseagreen;
   color: black;
 }
 
@@ -87,4 +78,30 @@ th {
 
 .heighttext{
     height:30px
+}
+
+/* ******** */
+.fixed_header {
+    width: 700px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.fixed_header tbody {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    height: 400px;
+}
+.fixed_header thead tr {
+    display: block;
+}
+.fixed_header thead {
+    background: black;
+    color: #fff;
+}
+.fixed_header th,
+.fixed_header td {
+    padding: 5px;
+    text-align: left;
+    width: 200px;
 }
