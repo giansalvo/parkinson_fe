@@ -168,7 +168,7 @@ function AddAnnotation() {
                   <input {...register("patient_id", { required: true })} />
                   <br/><br/>
                   <label for="visit_date">Visit Date</label>
-                  <input type="datetime-local" id="visit_date" name="visit_date" {...register("visit_date", { required: true })}/>
+                  <input type="date" id="visit_date" name="visit_date" {...register("visit_date", { required: true })}/>
                   <br/><br/>
                   <label for="birth_date">Birth Date</label>
                   <input type="date" id="birth_date" name="birth_date" {...register("birth_date", { required: true })}/>
@@ -185,9 +185,7 @@ function AddAnnotation() {
                     <option value="F">Female</option>
                   </select>
 
-                  {errors.title       && <span>This field is required</span>}
-                  {errors.patient_id  && <span>This field is required</span>}        
-                  {errors.user_id     && <span>This field is required</span>}        
+                  {(errors.title ||  errors.patient_id)     && <span>This field is required</span>}
                   
                   <input class="button3" type="submit" />
               </form>
