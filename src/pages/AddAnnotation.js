@@ -28,7 +28,12 @@ function AddAnnotation() {
         description: "",
         patient_id: "",
         patient_age: "",
-        user_id: 1});
+        sn_right: 0,
+        sn_left: 0,
+        birth_date: null,
+        visit_date: null,
+        sex: null,
+        user_id: 1}); // TODO HARDCODED
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -100,7 +105,11 @@ function AddAnnotation() {
         formData.append("title", data.title);
         formData.append("description", data.description);
         formData.append("patient_id", data.patient_id);
-        formData.append("patient_age", data.patient_age);
+        // formData.append("patient_age", data.patient_age);
+        formData.append("sn_right", data.sn_right)
+        formData.append("sn_left", data.sn_left)
+        formData.append("sex", data.sex)
+        formData.append("birth_date", data.birth_date)
         formData.append("user_id", data.user_id);
 
         console.log("formData:", formData)
@@ -159,19 +168,19 @@ function AddAnnotation() {
                   <input {...register("patient_id", { required: true })} />
                   <br/><br/>
                   <label for="visit_date">Visit Date</label>
-                  <input type="datetime-local" id="visit_date" name="visit_date"/>
+                  <input type="datetime-local" id="visit_date" name="visit_date" {...register("visit_date", { required: true })}/>
                   <br/><br/>
                   <label for="birth_date">Birth Date</label>
-                  <input type="date" id="birth_date" name="birth_date"/>
+                  <input type="date" id="birth_date" name="birth_date" {...register("birth_date", { required: true })}/>
                   <br/><br/>
                   <label for="sn_right">SN Right</label>
-                  <input type="number" id="sn_right" name="sn_right" min="0"/>
+                  <input type="number" id="sn_right" name="sn_right" min="0" {...register("sn_right", { required: true })}/>
                   <br/><br/>
                   <label for="sn_left">SN Left</label>
-                  <input type="number" id="sn_left" name="sn_left" min="0"/>
+                  <input type="number" id="sn_left" name="sn_left" min="0" {...register("sn_left", { required: true })}/>
                   <br/><br/>
                   <label for="sex">Sex</label>
-                  <select id="sex">
+                  <select id="sex" name="sex" {...register("sex", { required: true })}>
                     <option value="M">Male</option>
                     <option value="F">Female</option>
                   </select>
@@ -180,7 +189,7 @@ function AddAnnotation() {
                   {errors.patient_id  && <span>This field is required</span>}        
                   {errors.user_id     && <span>This field is required</span>}        
                   
-                  <input type="submit" />
+                  <input class="button3" type="submit" />
               </form>
           </div>
           <div class="column_images">
