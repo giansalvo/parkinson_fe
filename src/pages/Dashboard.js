@@ -114,10 +114,9 @@ function Dashboard() {
           <input type="submit" />
           
         </form>
-        {/* *** TABLE 1 **** */}
-        <h2>Click the button to get data</h2>
-        <div class="FixedHeightContainer">
-        <table>
+        {/* *** TABLE **** */}
+        <div>
+        <table class="fixed_header">
             <theader>
               <th>id</th>
               <th>patient_id</th>
