@@ -14,42 +14,103 @@ function Dashboard() {
 
   const [fields, setFields] = useState({
     sex: "",
-    sn_left_min: 0,
-    sn_left_max: 999,
-    sn_right_min: 0,
-    sn_right_max: 999,
-    sn_right_min: 0,
-    birth_from: null,
-    birth_to: null});
+    sn_left_min: "",
+    sn_left_max: "",
+    sn_right_min: "",
+    sn_right_max: "",
+    sn_right_min: "",
+    birth_from: "",
+    birth_to: ""});
 
   const [content, setContent] = useState(null)
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   function onSubmit (data) {
     console.log("Data:", data)
+  
+    let param = ""
+    let started = false
+    if (data.sex) {
+      if (started) {
+        param = param + "&"
+      }
+      param = param + "sex=" + data.sex;
+      started = true
+    }
+    if (data.sn_left_min) {
+      if (started) {
+        param = param + "&"
+      }
+      param = param + "sn_left_min=" + data.sn_left_min;
+      started = true
+    }
+    if (data.sn_left_max) {
+      if (started) {
+        param = param + "&"
+      }
+      param = param + "sn_left_max=" + data.sn_left_max;
+      started = true
+    }
+    if (data.sn_right_min) {
+      if (started) {
+        param = param + "&"
+      }
+      param = param + "sn_right_min=" + data.sn_right_min;
+      started = true
+    }
+    if (data.sn_right_max) {
+      if (started) {
+        param = param + "&"
+      }
+      param = param + "sn_right_max=" + data.sn_right_max;
+      started = true
+    }
+    if (data.visit_from) {
+      if (started) {
+        param = param + "&"
+      }
+      param = param + "visit_from=" + data.visit_from;
+      started = true
+    }
+    if (data.visit_to) {
+      if (started) {
+        param = param + "&"
+      }
+      param = param + "visit_to=" + data.visit_to;
+      started = true
+    }
+    if (data.birth_from) {
+      if (started) {
+        param = param + "&"
+      }
+      param = param + "birth_from=" + data.birth_from;
+      started = true
+    }
+    if (data.birth_to) {
+      if (started) {
+        param = param + "&"
+      }
+      param = param + "birth_to=" + data.birth_to;
+      started = true
+    }
+ 
+    if (param) {
+      param = "?"+param
+    }
 
-    const formData = new FormData()
-    formData.append("sex", 'F');
-    formData.append("sn_left_min", data.sn_left_min);
-    formData.append("sn_left_max", data.sn_left_max);
-    formData.append("sn_right_min", data.sn_right_min);
-    formData.append("sn_right_max", data.sn_right_max);
-    formData.append("visit_from", data.visit_from);
-    formData.append("visit_to", data.visit_to);
-    formData.append("birth_from", data.birth_from);
-    formData.append("birth_to", data.birth_to);
+    console.log("param:"+param)
 
-    console.log("formData:", formData)
-    console.log("sex: " + data.sex + " " + formData.get("sex"));
+    const url = "http://[::1]:8438/prediction/do-dashboard/" + param
+    console.log(url)
 
     axios
-    .get(
-        "http://[::1]:8438/prediction/do-dashboard/",
-        formData,
+    .get(url,
+        "",
         {
             headers: {
                 "Content-type": "multipart/form-data",
             },
+
             responseType: "application/JSON", // TODO verify thiss
         }
     )
@@ -76,18 +137,18 @@ function Dashboard() {
         <div class="column_dashboard">
           Date of Visit
           <label for="visit_from">From:</label>
-          <input type="date" id="visit_from" name="visit_from" {...register("visit_from", { required: true })}/>
+          <input type="date" id="visit_from" name="visit_from" {...register("visit_from")}/>
           <label for="visit_to">To:</label>
-          <input type="date" id="visit_to" name="visit_to" {...register("visit_to", { required: true })}/>
+          <input type="date" id="visit_to" name="visit_to" {...register("visit_to")}/>
           <br/><br/>
           Date of birth
           <label for="birth_from">From:</label>
-          <input type="date" id="birth_from" name="birth_from" {...register("birth_from", { required: true })}/>
+          <input type="date" id="birth_from" name="birth_from" {...register("birth_from")}/>
           <label for="birth_to">To:</label>
-          <input type="date" id="birth_to" name="birth_to" {...register("birth_to", { required: true })}
+          <input type="date" id="birth_to" name="birth_to" {...register("birth_to")}
           /><br/><br/>
           <label for="sex">Sex:</label>
-          <select name="sex" id="sex" {...register("sex", { required: true })}>
+          <select name="sex" id="sex" {...register("sex")}>
             <option value='A'>All</option>
             <option value='M'>Male</option>
             <option value='F'>Female</option>
@@ -96,22 +157,22 @@ function Dashboard() {
         <div class="column_dashboard">
               SN Right
           <label for="sn_right_min">min</label>
-          <input type="number" id="sn_right_min" name="sn_right_min" min="0" {...register("sn_right_min", { required: true })}/>
+          <input type="number" id="sn_right_min" name="sn_right_min" min="0" {...register("sn_right_min")}/>
           <label for="sn_right_max">max</label>
-          <input type="number" id="sn_right_max" name="sn_right_max" min="0" {...register("sn_right_max", { required: true })}/>
+          <input type="number" id="sn_right_max" name="sn_right_max" min="0" {...register("sn_right_max")}/>
           <br/><br/>
           SN Left
           <label for="sn_left_min">min</label>
-          <input type="number" id="sn_left_min" name="sn_left_min" min="0" {...register("sn_left_min", { required: true })}/>
+          <input type="number" id="sn_left_min" name="sn_left_min" min="0" {...register("sn_left_min")}/>
           <label for="sn_left_max">max</label>
-          <input type="number" id="sn_left_max" name="sn_left_max" min="0" {...register("sn_left_max", { required: true })}/>
+          <input type="number" id="sn_left_max" name="sn_left_max" min="0" {...register("sn_left_max")}/>
           </div>
           </div>
           
           {errors.visit_from       && <span>This field is required</span>}
           {errors.sn_left_min       && <span>This field is required</span>}
 
-          <input type="submit" />
+          <input class="button3" type="submit" />
           
         </form>
         {/* *** TABLE **** */}
