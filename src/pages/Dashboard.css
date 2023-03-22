@@ -82,7 +82,7 @@ th {
 
 /* ******** */
 .fixed_header {
-    width: 700px;
+    width: 100%;
     table-layout: fixed;
     border-collapse: collapse;
 }
@@ -103,7 +103,7 @@ th {
 .fixed_header td {
     padding: 5px;
     text-align: left;
-    width: 200px;
+    width: 100%;
 }
 .button3 {
   background-color: white; 
