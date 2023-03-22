@@ -1,6 +1,5 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Outlet, Link } from "react-router-dom";
 
 import "./HomePage.css"
 import {Header} from "../components/shared/Header/Header";
@@ -10,12 +9,7 @@ function HomePage() {
 
   console.log("HomePage")
 
-  const { handleSubmit, formState: { errors } } = useForm();
-
-  function onSubmit (data) {
-      console.log("onSubmit")
-      // push
-    };
+  const { formState: { errors } } = useForm();
 
     return (
       <div class="main_container">

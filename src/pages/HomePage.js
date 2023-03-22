@@ -1,5 +1,4 @@
 import React from "react";
-import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 import "./HomePage.css"
@@ -19,8 +18,6 @@ const img = [img1, img2, img3, img4, img5]
 function HomePage() {
 
   console.log("HomePage")
-
-  const {formState: { errors } } = useForm();
 
   const [index, setIndex] = React.useState(0);
   const timeoutRef = React.useRef(null);
@@ -61,7 +58,7 @@ function HomePage() {
               <div
                 className="slide"
                 key={index}
-              ><img src={img[index]}/></div>
+              ><img src={img[index]} alt="slideshow"/></div>
             ))}
           </div>
         <div className="slideshowDots">
