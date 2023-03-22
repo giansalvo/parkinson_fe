@@ -49,36 +49,35 @@ function HomePage() {
     return (
       <div>
         <Header/>
-        <div className="slideshow">
-      <div
-        className="slideshowSlider"
-        style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
-      >
-        {colors.map((backgroundColor, index) => (
+        <div className="slideshow" >
           <div
-            className="slide"
-            key={index}
-          ><img src={img[index]}/></div>
-        ))}
-      </div>
-
-      <div className="slideshowDots">
-        {colors.map((_, idx) => (
-          <div
-            key={idx}
-            className={`slideshowDot${index === idx ? " active" : ""}`}
-            onClick={() => {
-              setIndex(idx);
-            }}
-          ></div>
-        ))}
-      </div>
-    </div>
+            className="slideshowSlider"
+            style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
+          >
+            {colors.map((backgroundColor, index) => (
+              <div
+                className="slide"
+                key={index}
+              ><img src={img[index]}/></div>
+            ))}
+          </div>
+        <div className="slideshowDots">
+          {colors.map((_, idx) => (
+            <div
+              key={idx}
+              className={`slideshowDot${index === idx ? " active" : ""}`}
+              onClick={() => {
+                setIndex(idx);
+              }}
+            ></div>
+          ))}
+        </div>
+        </div>
         <div class="message">
           <h2>
             Welcome! This website uses a Neural Network Artificial Intelligence to identify and highlight the Substantia Nigra found in Parkinson's patients.
-            You can either try it with the following button or register to participate to the project and send new images. 
-            In this case you will help us develop a more performant syste.
+            You can either <Link to="/Prediction">give it a try</Link> or <Link to="/SignIn">register</Link> to participate to the project and send new images. 
+            In this case you will help us develop a more performant system.
           </h2>
         </div>
         <Footer/>
