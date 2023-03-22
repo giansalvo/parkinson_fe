@@ -16,7 +16,12 @@ function HomePage() {
         <Header/>
         <div class="message">
             We would like to build a bigger dataset. For this raison we are open for collaborations with other researchers and doctors.
-            For futher information about artificial intelligence applied to Parkinson's early detection or for participating, please send an email to: g.gusinu@phd.uniss.it
+            <br/><br/>
+            For futher information about artificial intelligence applied to Parkinson's disease early detection or for participating to this project, please send an email to: 
+            <br/><br/>
+            <center>
+            <a href="mailto:g.gusinu@phd.uniss.it">g.gusinu@phd.uniss.it</a>
+            </center>
         </div>
         <Footer/>
     </div>

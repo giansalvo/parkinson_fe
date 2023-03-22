@@ -2,8 +2,10 @@
 * {
   box-sizing: border-box;
   margin: 0px;
-  padding: 0px
-}
+  padding: 0px;
+  /* font-family: 'Vazir', sans-serif !important; */
+  font-family: 'Arial', sans-serif !important;
+} 
 
 .main_container {
   display: flex;
