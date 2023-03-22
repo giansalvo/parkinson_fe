@@ -49,6 +49,9 @@ function HomePage() {
     return (
       <div>
         <Header/>
+        <br/>
+        <br/>
+        <br/>
         <div className="slideshow" >
           <div
             className="slideshowSlider"
@@ -78,6 +81,9 @@ function HomePage() {
             You can either <Link to="/Prediction">give it a try</Link> or <Link to="/SignIn">register</Link> to participate to the project and send new images. 
             In this case you will help us develop a more performant system.
         </div>
+        <br/>
+        <br/>
+        <br/>
         <Footer/>
     </div>
   );
