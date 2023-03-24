@@ -19,7 +19,9 @@ function Dashboard() {
     sn_right_max: "",
     sn_right_min: "",
     birth_from: "",
-    birth_to: ""});
+    birth_to: "",
+    visit_from: "",
+    visit_to: ""});
 
   const [content, setContent] = useState(null)
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -127,7 +129,6 @@ function Dashboard() {
     })
   };
 
-
   return (
     <div class="main_container">
       <Header/>
@@ -171,7 +172,8 @@ function Dashboard() {
           {errors.visit_from       && <span>This field is required</span>}
           {errors.sn_left_min       && <span>This field is required</span>}
 
-          <input class="button3" type="submit" />
+          <input class="button3" type="submit"/>
+          <input class="button3" type="reset"/>  {/* *** TODO **** */}
           
         </form>
         {/* *** TABLE **** */}
@@ -184,7 +186,8 @@ function Dashboard() {
               <th>description</th>
               <th>age</th>  
               <th>Sex</th>  
-              <th>Date of Visit</th>                                          
+              <th>Date of Birth</th> 
+              <th>Date of Visit</th> 
               <th>SN right</th>
               <th>SN left</th>
               <th>User Name</th>
@@ -224,6 +227,7 @@ function Dashboard() {
                     {record.sn_left}
                 </td>
                 <td>
+                    TODO
                     {/* {record.user name!!!} */}
                 </td>  
                 </tr>
