@@ -193,7 +193,7 @@ function Prediction() {
           // setPrediction(url);
      });
      return (
-      <div class="column_images">
+      <div className="column_images">
         <h2>Substantia Nigra (in red)</h2>
         {prediction}<br/><br/>
         {prediction ?
@@ -249,9 +249,9 @@ function Prediction() {
       }, [file]);
     
     return (
-      <div class="main_container">
+      <div className="main_container">
         <Header/>
-        <div class="row">
+        <div className="row">
           <Uploady
             multiple={false}
             destination={{ url: "http://[::1]:8438/prediction/do-prediction/" }}
@@ -269,7 +269,7 @@ function Prediction() {
             fallbackUrl="https://icon-library.net/images/image-placeholder-icon/image-placeholder-icon-6.jpg"
           />
         </div>
-        <div class="column_images">
+        <div className="column_images">
           <PredictedImage/>
         </div>
        </Uploady>

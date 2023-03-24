@@ -12,9 +12,9 @@ function Credits() {
   const { formState: { errors } } = useForm();
 
   return (
-      <div class="main_container">
+      <div className="main_container">
         <Header/>
-        <div class="message">
+        <div className="message">
           This research was developed by Giansalvo Gusinu, Dr Claudia Frau, Prof. Giuseppe A. Trunfio, Prof. Paolo Solla and Prof. Leonardo A. Sechi at <a href="https://www.uniss.it" target="_blank">UNISS</a>
           <br/><br/>
           The website was realized in collaboration with the company <a href="https://abinsula.com" target="_blank">Abinsula</a>, one of the main Italian players in Embedded, IoT, Web and Mobile solutions.

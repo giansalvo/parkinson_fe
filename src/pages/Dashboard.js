@@ -130,43 +130,43 @@ function Dashboard() {
   };
 
   return (
-    <div class="main_container">
+    <div className="main_container">
       <Header/>
       <form  onSubmit={handleSubmit(onSubmit)}>
-      <div class="row_dashboard">
-        <div class="column_dashboard">
+      <div className="row_dashboard">
+        <div className="column_dashboard">
           Date of Visit
           <br/>
-          <label for="visit_from">From:</label>
+          <label htmlFor="visit_from">From:</label>
           <input type="date" id="visit_from" name="visit_from" {...register("visit_from")}/>
-          <label for="visit_to">To:</label>
+          <label htmlFor="visit_to">To:</label>
           <input type="date" id="visit_to" name="visit_to" {...register("visit_to")}/>
           <br/><br/>
           Date of birth
           <br/>
-          <label for="birth_from">From:</label>
+          <label htmlFor="birth_from">From:</label>
           <input type="date" id="birth_from" name="birth_from" {...register("birth_from")}/>
-          <label for="birth_to">To:</label>
+          <label htmlFor="birth_to">To:</label>
           <input type="date" id="birth_to" name="birth_to" {...register("birth_to")}
           /><br/><br/>
-          <label for="sex">Sex:</label>
+          <label htmlFor="sex">Sex:</label>
           <select name="sex" id="sex" {...register("sex")}>
             <option value='A'>All</option>
             <option value='M'>Male</option>
             <option value='F'>Female</option>
           </select><br/><br/>
           </div>
-        <div class="column_dashboard">
+        <div className="column_dashboard">
            SN Right<br/>
-          <label for="sn_right_min">min</label>
+          <label htmlFor="sn_right_min">min</label>
           <input type="number" id="sn_right_min" name="sn_right_min" min="0" {...register("sn_right_min")}/>
-          <label for="sn_right_max">max</label>
+          <label htmlFor="sn_right_max">max</label>
           <input type="number" id="sn_right_max" name="sn_right_max" min="0" {...register("sn_right_max")}/>
           <br/><br/>
           SN Left<br/>
-          <label for="sn_left_min">min</label>
+          <label htmlFor="sn_left_min">min</label>
           <input type="number" id="sn_left_min" name="sn_left_min" min="0" {...register("sn_left_min")}/>
-          <label for="sn_left_max">max</label>
+          <label htmlFor="sn_left_max">max</label>
           <input type="number" id="sn_left_max" name="sn_left_max" min="0" {...register("sn_left_max")}/>
           </div>
           </div>
@@ -174,14 +174,15 @@ function Dashboard() {
           {errors.visit_from       && <span>This field is required</span>}
           {errors.sn_left_min       && <span>This field is required</span>}
 
-          <input class="button3" type="submit"/>
-          <input class="button3" type="reset"/>  {/* *** TODO **** */}
+          <input className="button3" type="submit"/>
+          <input className="button3" type="reset"/>  {/* *** TODO **** */}
           
         </form>
         {/* *** TABLE **** */}
         <div>
-        <table class="fixed_header">
-            <theader>
+        <table className="fixed_header">
+            <thead>
+            <tr>
               <th>id</th>
               <th>patient_id</th>
               <th>title</th>
@@ -193,10 +194,11 @@ function Dashboard() {
               <th>SN right</th>
               <th>SN left</th>
               <th>User Name</th>
-            </theader>
+            </tr>
+            </thead>
             <tbody >
               {content && content.map((record)=>(
-                <tr>
+                <tr key = {record.id}>
                 <td>
                   {record.id}
                 </td>

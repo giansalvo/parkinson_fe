@@ -104,20 +104,20 @@ function Prediction() {
     };
 
     return (
-      <div class="main_container">
+      <div className="main_container">
         <Header/>
-        <div class="row">
-          <div class="column_form">
+        <div className="row">
+          <div className="column_form">
               <form onSubmit={handleSubmit(onSubmit)}>
-                  <label for="image">Image: </label>
+                  <label htmlFor="image">Image: </label>
                   <input type="file" {...register("image", { required: true })} 
                       accept='.png, .jpg, .jpeg'
                       onChange={changeHandler} />
                   <br/>
-                  <input class="button3" type="submit" />
+                  <input className="button3" type="submit" />
               </form>
           </div>
-          <div class="column_images">
+          <div className="column_images">
               <h2>Patient image</h2>
               {fileDataURL ?
               <div className="img-preview-wrapper">
@@ -126,7 +126,7 @@ function Prediction() {
               }
               </div> : <img src = {image_placeholder} width="100%" alt="placeholder"/>}
           </div>
-          <div class="column_images">
+          <div className="column_images">
               <h2>Substantia Nigra (in red)</h2>
               {prediction ?
               <div className="img-preview-wrapper">

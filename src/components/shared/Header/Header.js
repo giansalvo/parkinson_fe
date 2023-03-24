@@ -10,7 +10,7 @@ export function Header() {
     return(
         <>
     
-            <div class="navbar">
+            <div className="navbar">
                 <div>
                 <a href="/HomePage">Home</a>
                 </div>
@@ -23,18 +23,18 @@ export function Header() {
                 <div>
                 <a href="/Credits">Credits</a>
                 </div>
-                <div class="dropdown">
-                    <button_navbar class="dropbtn">Services
-                        <i class="fa fa-caret-down"></i>
-                    </button_navbar>
-                    <div class="dropdown-content">
+                <div className="dropdown">
+                    <button className="dropbtn">Services
+                        <i className="fa fa-caret-down"></i>
+                    </button>
+                    <div className="dropdown-content">
                         <a href="/Dashboard">Dashboard</a>
                         <a href="/Prediction">Prediction</a>
-                        <a href="/AddAnnotation">Add Annotation</a>
+                        {/* <a href="/AddAnnotation">Add Annotation</a> */}
                         <a href="/ExportData">Export data</a>
                     </div>
                 </div>
-                <div class="push">
+                <div className="push">
                 <a  href="/SignIn">Login</a>
                 </div>
             </div>

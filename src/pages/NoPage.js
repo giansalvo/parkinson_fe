@@ -12,9 +12,9 @@ function HomePage() {
   const {formState: { errors } } = useForm();
 
   return (
-      <div class="main_container">
+      <div className="main_container">
         <Header/>
-        <div class="message">
+        <div className="message">
           <h2>
           Page Not Found!
           </h2>

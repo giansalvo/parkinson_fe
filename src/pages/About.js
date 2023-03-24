@@ -12,9 +12,9 @@ function HomePage() {
   const { formState: { errors } } = useForm();
 
     return (
-      <div class="main_container">
+      <div className="main_container">
         <Header/>
-        <div class="message">
+        <div className="message">
           This project is the resulut of a PhD research in the course of Basic Lifesciences and Biotechnologies at <a href="https://www.uniss.it" target="_blank">University of Sassari</a>
           <br/><br/>
           Our aim is to design and build a Computer Aided Detection (CAD) system that could perform automatic Parkinson's disease (PD) detection as efficiently as a human expert.

@@ -11,14 +11,14 @@ export function Footer() {
     console.log("Footer");
 
     return(
-            <footer class="footer_row">
-                <div class="footer_column">
+            <footer className="footer_row">
+                <div className="footer_column">
                     <a href="https://www.uniss.it" target="_blank" rel="noreferrer"><img src = {logo_uniss} height="50" alt="UNISS logo"/></a> 
                 </div>
-                <div class="footer_column">
+                <div className="footer_column">
                     <img src = {logo_PON} height="50" alt="PON logo"/>
                 </div>
-                <div class="footer_column">
+                <div className="footer_column">
                     <a href="https://www.abinsula.com" target="_blank" rel="noreferrer"><img src = {logo_abinsula} height="50" alt="Abinsula logo"/></a> 
                 </div>
             </footer>

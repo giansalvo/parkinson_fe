@@ -139,8 +139,8 @@ function AddAnnotation() {
     return (
       <div>
         <Header/>
-        <div class="row">
-          <div class="column_form">
+        <div className="row">
+          <div className="column_form">
               <form onSubmit={handleSubmit(onSubmit)}>
                   <label for="image">Patient's Image: </label>
                   <input type="file" {...register("image", { required: true })} 
@@ -191,10 +191,10 @@ function AddAnnotation() {
                   errors.annotation) 
                   && <span><b>All fields are required</b></span>}
                   <br/><br/>
-                  <input class="button3" type="submit" />
+                  <input className="button3" type="submit" />
               </form>
           </div>
-          <div class="column_images">
+          <div className="column_images">
               <h2>Untraced Patient Image</h2>
               {fileDataURL ?
               <div className="img-preview-wrapper">
@@ -203,7 +203,7 @@ function AddAnnotation() {
               }
               </div> : <img src = {image_placeholder} width="100%" alt="placeholder"/>}
           </div>
-          <div class="column_images">
+          <div className="column_images">
               <h2>Ground Truth image</h2>
               {fileDataURL2 ?
               <div className="img-preview-wrapper">
