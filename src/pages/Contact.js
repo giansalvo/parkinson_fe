@@ -1,5 +1,4 @@
 import React from "react";
-import { useForm } from "react-hook-form";
 
 import "./HomePage.css"
 import {Header} from "../components/shared/Header/Header";
@@ -9,9 +8,7 @@ function HomePage() {
 
   console.log("HomePage")
 
-  const { formState: { errors } } = useForm();
-
-  return (
+ return (
       <div className="main_container">
         <Header/>
         <div className="message">

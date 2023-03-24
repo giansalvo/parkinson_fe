@@ -142,45 +142,45 @@ function AddAnnotation() {
         <div className="row">
           <div className="column_form">
               <form onSubmit={handleSubmit(onSubmit)}>
-                  <label for="image">Patient's Image: </label>
+                  <label htmlFor="image">Patient's Image: </label>
                   <input type="file" {...register("image", { required: true })} 
                       accept='.png, .jpg, .jpeg'
                       onChange={(e)=>changeHandler(e, "image1")} />
-                  <label for="annotation">Annotation image: </label>
+                  <label htmlFor="annotation">Annotation image: </label>
                   <input type="file" {...register("annotation", { required: true })} 
                       accept='.png, .jpg, .jpeg'
                       onChange={(e)=>changeHandler(e, "image2")} />
                   <br/>
-                  <label for="title">Title: </label>
+                  <label htmlFor="title">Title: </label>
                   <br/>
                   <input {...register("title", { required: true })} />
                   <br/>
-                  <label for="description">Description: </label>
+                  <label htmlFor="description">Description: </label>
                   <br/>
                   <input {...register("description", { required: true })} />
                   <br/>
-                  <label for="user_id">User ID: </label>
+                  <label htmlFor="user_id">User ID: </label>
                   <br/>
                   <input {...register("user_id", { required: true })} />
                   <br/>
-                  <label for="patient_id">Patient ID: </label>
+                  <label htmlFor="patient_id">Patient ID: </label>
                   <br/>
                   <input {...register("patient_id", { required: true })} />
                   <br/>
-                  <label for="visit_date">Visit Date</label>
+                  <label htmlFor="visit_date">Visit Date</label>
                   <br/>
                   <input type="date" id="visit_date" name="visit_date" {...register("visit_date", { required: true })}/>
                   <br/>
-                  <label for="birth_date">Birth Date</label>
+                  <label htmlFor="birth_date">Birth Date</label>
                   <input type="date" id="birth_date" name="birth_date" {...register("birth_date", { required: true })}/>
                   <br/>
-                  <label for="sn_right">SN Right</label>
+                  <label htmlFor="sn_right">SN Right</label>
                   <input type="number" id="sn_right" name="sn_right" min="0" {...register("sn_right", { required: true })}/>
                   <br/>
-                  <label for="sn_left">SN Left</label>
+                  <label htmlFor="sn_left">SN Left</label>
                   <input type="number" id="sn_left" name="sn_left" min="0" {...register("sn_left", { required: true })}/>
                   <br/>
-                  <label for="sex">Sex</label>
+                  <label htmlFor="sex">Sex</label>
                   <select id="sex" name="sex" {...register("sex", { required: true })}>
                     <option value="M">Male</option>
                     <option value="F">Female</option>

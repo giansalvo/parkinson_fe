@@ -1,6 +1,5 @@
 import React from 'react';
 
-import logo_project from "../../../images/SN.AI_logo.png";
 import "./Header.css"
 
 export function Header() {
@@ -30,7 +29,7 @@ export function Header() {
                     <div className="dropdown-content">
                         <a href="/Dashboard">Dashboard</a>
                         <a href="/Prediction">Prediction</a>
-                        {/* <a href="/AddAnnotation">Add Annotation</a> */}
+                        <a href="/AddAnnotation">Add Annotation</a>
                         <a href="/ExportData">Export data</a>
                     </div>
                 </div>

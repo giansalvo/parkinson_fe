@@ -1,6 +1,4 @@
-import axios from "axios";
 import { useForm } from "react-hook-form";
-import fileDownload from 'js-file-download'
 
 import {Header} from "../components/shared/Header/Header";
 import image_placeholder from "../images/image_placeholder.png"

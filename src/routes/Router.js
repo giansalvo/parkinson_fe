@@ -14,8 +14,6 @@ import ExportData from "../pages/ExportData";
 
 const Router = () => {
 
-    const history = useHistory()
-
     console.log("Router")
 
     return (
