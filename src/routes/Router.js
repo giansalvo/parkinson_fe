@@ -9,6 +9,7 @@ import Credits from "../pages/Credits"
 import NoPage from "../pages/NoPage"
 import AddAnnotation from "../pages/AddAnnotation"
 import Dashboard from "../pages/Dashboard"
+import Prediction2 from "../pages/Prediction2";
 
 const Router = () => {
 
@@ -19,6 +20,7 @@ const Router = () => {
     return (
         <BrowserRouter>
             <Switch>
+                <Route exact path="/prediction2/" component={Prediction2} />
                 <Route exact path="/prediction/" component={Prediction} />
                 <Route exact path="/HomePage/" component={HomePage} />
                 <Route exact path="/SignIn/" component={SignIn} />
