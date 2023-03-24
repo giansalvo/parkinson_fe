@@ -31,6 +31,7 @@ export function Header() {
                         <a href="/Dashboard">Dashboard</a>
                         <a href="/Prediction">Prediction</a>
                         <a href="/AddAnnotation">Add Annotation</a>
+                        <a href="/ExportData">Export data</a>
                     </div>
                 </div>
                 <div class="push">

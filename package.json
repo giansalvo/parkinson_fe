@@ -22,6 +22,7 @@
     "js-file-download": "^0.4.12",
     "react": "17.0.2",
     "react-crop-image": "^1.0.0",
+    "react-csv": "^2.2.2",
     "react-dom": "17.0.2",
     "react-hook-form": "^7.43.5",
     "react-image-crop": "8.6.4",

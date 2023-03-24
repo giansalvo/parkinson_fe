@@ -10,6 +10,7 @@ import NoPage from "../pages/NoPage"
 import AddAnnotation from "../pages/AddAnnotation"
 import Dashboard from "../pages/Dashboard"
 import Prediction2 from "../pages/Prediction2";
+import ExportData from "../pages/ExportData";
 
 const Router = () => {
 
@@ -29,6 +30,7 @@ const Router = () => {
                 <Route exact path="/Credits/" component={Credits} />
                 <Route exact path="/AddAnnotation/" component={AddAnnotation} />
                 <Route exact path="/Dashboard/" component={Dashboard} />
+                <Route exact path="/ExportData/" component={ExportData} />
                 <Route exact path="/" component={HomePage} />
                 
                 <Route path="*" component={NoPage} />
