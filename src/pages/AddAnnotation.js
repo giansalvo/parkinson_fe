@@ -137,7 +137,7 @@ function AddAnnotation() {
     };
 
     return (
-      <div class="main_container">
+      <div>
         <Header/>
         <div class="row">
           <div class="column_form">
@@ -166,32 +166,36 @@ function AddAnnotation() {
                   <label for="patient_id">Patient ID: </label>
                   <br/>
                   <input {...register("patient_id", { required: true })} />
-                  <br/><br/>
+                  <br/>
                   <label for="visit_date">Visit Date</label>
+                  <br/>
                   <input type="date" id="visit_date" name="visit_date" {...register("visit_date", { required: true })}/>
-                  <br/><br/>
+                  <br/>
                   <label for="birth_date">Birth Date</label>
                   <input type="date" id="birth_date" name="birth_date" {...register("birth_date", { required: true })}/>
-                  <br/><br/>
+                  <br/>
                   <label for="sn_right">SN Right</label>
                   <input type="number" id="sn_right" name="sn_right" min="0" {...register("sn_right", { required: true })}/>
-                  <br/><br/>
+                  <br/>
                   <label for="sn_left">SN Left</label>
                   <input type="number" id="sn_left" name="sn_left" min="0" {...register("sn_left", { required: true })}/>
-                  <br/><br/>
+                  <br/>
                   <label for="sex">Sex</label>
                   <select id="sex" name="sex" {...register("sex", { required: true })}>
                     <option value="M">Male</option>
                     <option value="F">Female</option>
                   </select>
-
-                  {(errors.title ||  errors.patient_id)     && <span>This field is required</span>}
-                  
+                  <br/><br/>
+                  {(errors.title ||  errors.patient_id || errors.sex || errors.sn_left ||
+                  errors.sn_right || errors.birth_date || errors.visit_date || errors.image ||
+                  errors.annotation) 
+                  && <span><b>All fields are required</b></span>}
+                  <br/><br/>
                   <input class="button3" type="submit" />
               </form>
           </div>
           <div class="column_images">
-              <h2>Patient image</h2>
+              <h2>Untraced Patient Image</h2>
               {fileDataURL ?
               <div className="img-preview-wrapper">
               {
@@ -200,7 +204,7 @@ function AddAnnotation() {
               </div> : <img src = {image_placeholder} width="100%" alt="placeholder"/>}
           </div>
           <div class="column_images">
-              <h2>Substantia Nigra (in red)</h2>
+              <h2>Ground Truth image</h2>
               {fileDataURL2 ?
               <div className="img-preview-wrapper">
               {
