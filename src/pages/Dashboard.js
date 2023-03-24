@@ -136,12 +136,14 @@ function Dashboard() {
       <div class="row_dashboard">
         <div class="column_dashboard">
           Date of Visit
+          <br/>
           <label for="visit_from">From:</label>
           <input type="date" id="visit_from" name="visit_from" {...register("visit_from")}/>
           <label for="visit_to">To:</label>
           <input type="date" id="visit_to" name="visit_to" {...register("visit_to")}/>
           <br/><br/>
           Date of birth
+          <br/>
           <label for="birth_from">From:</label>
           <input type="date" id="birth_from" name="birth_from" {...register("birth_from")}/>
           <label for="birth_to">To:</label>
@@ -155,13 +157,13 @@ function Dashboard() {
           </select><br/><br/>
           </div>
         <div class="column_dashboard">
-              SN Right
+           SN Right<br/>
           <label for="sn_right_min">min</label>
           <input type="number" id="sn_right_min" name="sn_right_min" min="0" {...register("sn_right_min")}/>
           <label for="sn_right_max">max</label>
           <input type="number" id="sn_right_max" name="sn_right_max" min="0" {...register("sn_right_max")}/>
           <br/><br/>
-          SN Left
+          SN Left<br/>
           <label for="sn_left_min">min</label>
           <input type="number" id="sn_left_min" name="sn_left_min" min="0" {...register("sn_left_min")}/>
           <label for="sn_left_max">max</label>
