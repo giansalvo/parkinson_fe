@@ -24,9 +24,9 @@ export function Header() {
                 <a href="/Credits">Credits</a>
                 </div>
                 <div class="dropdown">
-                    <button class="dropbtn">Services
+                    <button_navbar class="dropbtn">Services
                         <i class="fa fa-caret-down"></i>
-                    </button>
+                    </button_navbar>
                     <div class="dropdown-content">
                         <a href="/Dashboard">Dashboard</a>
                         <a href="/Prediction">Prediction</a>
