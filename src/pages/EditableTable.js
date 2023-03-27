@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useTable, usePagination } from 'react-table'
+import axios from "axios"
 
 
 const Styles = styled.div`
@@ -189,8 +190,21 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
 function EditableTable() {
   const columns = React.useMemo(
     () => [
+      // {
+      //   // Header: 'Data',
+      //   columns: [
+      //     {
+      //       Header: 'Patient ID',
+      //       accessor: 'patient_id',
+      //     },
+      //     {
+      //       Header: 'Title',
+      //       accessor: 'title',
+      //     },
+      //   ],
+      // },
       {
-        Header: 'Name',
+        Header: 'Info',
         columns: [
           {
             Header: 'Patient ID',
@@ -200,11 +214,6 @@ function EditableTable() {
             Header: 'Title',
             accessor: 'title',
           },
-        ],
-      },
-      {
-        Header: 'Info',
-        columns: [
           {
             Header: 'Description',
             accessor: 'description',
@@ -244,6 +253,37 @@ function EditableTable() {
     []
   )
   
+  const url = "http://[::1]:8438/prediction/do-dashboard/"
+
+  function getData() {
+    axios
+    .get(url,
+        "",
+        {
+            headers: {
+                "Content-type": "multipart/form-data",
+            },
+
+            responseType: "application/JSON", // TODO verify thiss
+        }
+    )
+    .then((res) => {
+      console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", res)
+      
+        // data = JSON.stringify(res);
+        // const obj = JSON.parse(data);
+        // // var lenght = Object.keys(obj.data.predictions).length;
+        // // console.log("lenght " + lenght)
+        // var pObj = obj.data.predictions;
+        // console.log("pObj", pObj)
+        setData(res.data.predictions);
+    })
+    .catch((err) => {
+        alert("Error during request.")      
+        console.log("Error: " + err);
+    })
+  }
+
   function makeData() {
     return (
       [{"patient_id": "a", "title": "a1"},
@@ -252,7 +292,7 @@ function EditableTable() {
       )
   };
 
-  const [data, setData] = React.useState(() => makeData(20))
+  const [data, setData] = React.useState(null)
   const [originalData] = React.useState(data)
   const [skipPageReset, setSkipPageReset] = React.useState(false)
 
@@ -291,13 +331,14 @@ function EditableTable() {
 
   return (
     <Styles>
+      <button onClick={getData}>Get Data</button>
       <button onClick={resetData}>Reset Data</button>
-      <Table
+      {data && (<Table
         columns={columns}
         data={data}
         updateMyData={updateMyData}
         skipPageReset={skipPageReset}
-      />
+      />)}
     </Styles>
   )
 }
