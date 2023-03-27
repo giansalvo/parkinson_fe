@@ -37,6 +37,7 @@
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
+  border-radius:0px;
 }
 
 /* Add a red background color to navbar links on hover */
@@ -85,6 +86,8 @@
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  transition-duration: 0;
+  border-radius:0px;
 }
 
 .button_navbar:hover {

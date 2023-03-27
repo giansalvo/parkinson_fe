@@ -11,6 +11,15 @@ const Styles = styled.div`
     border-spacing: 0;
     border: 1px solid black;
 
+    tr:nth-child(even) {background-color: white;}
+
+    tr:hover {background-color: coral;}
+
+    th {
+      background-color: lightskyblue;
+      color: black;
+    }
+
     tr {
       :last-child {
         td {
@@ -37,12 +46,14 @@ const Styles = styled.div`
         border: 0;
       }
     }
+    
   }
 
   .pagination {
     padding: 0.5rem;
   }
 `
+
 
 // Create an editable cell renderer
 const EditableCell = ({
@@ -190,19 +201,6 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
 function EditableTable() {
   const columns = React.useMemo(
     () => [
-      // {
-      //   // Header: 'Data',
-      //   columns: [
-      //     {
-      //       Header: 'Patient ID',
-      //       accessor: 'patient_id',
-      //     },
-      //     {
-      //       Header: 'Title',
-      //       accessor: 'title',
-      //     },
-      //   ],
-      // },
       {
         Header: 'Info',
         columns: [
@@ -268,14 +266,6 @@ function EditableTable() {
         }
     )
     .then((res) => {
-      console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", res)
-      
-        // data = JSON.stringify(res);
-        // const obj = JSON.parse(data);
-        // // var lenght = Object.keys(obj.data.predictions).length;
-        // // console.log("lenght " + lenght)
-        // var pObj = obj.data.predictions;
-        // console.log("pObj", pObj)
         setData(res.data.predictions);
     })
     .catch((err) => {
