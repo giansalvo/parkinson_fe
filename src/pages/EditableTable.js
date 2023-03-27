@@ -193,12 +193,12 @@ function EditableTable() {
         Header: 'Name',
         columns: [
           {
-            Header: 'First Name',
-            accessor: 'firstName',
+            Header: 'Patient ID',
+            accessor: 'patient_id',
           },
           {
-            Header: 'Last Name',
-            accessor: 'lastName',
+            Header: 'Title',
+            accessor: 'title',
           },
         ],
       },
@@ -206,21 +206,38 @@ function EditableTable() {
         Header: 'Info',
         columns: [
           {
+            Header: 'Description',
+            accessor: 'description',
+          },
+          {
             Header: 'Age',
             accessor: 'age',
           },
           {
-            Header: 'Visits',
-            accessor: 'visits',
+            Header: 'Sex',
+            accessor: 'sex',
           },
           {
-            Header: 'Status',
-            accessor: 'status',
+            Header: 'Birth date',
+            accessor: 'birth_date',
           },
           {
-            Header: 'Profile Progress',
-            accessor: 'progress',
+            Header: 'Visit date',
+            accessor: 'visit_date',
           },
+          {
+            Header: 'SN right',
+            accessor: 'sn_right',
+          },
+          {
+            Header: 'SN left',
+            accessor: 'sn_left',
+          },
+          {
+            Header: 'Username',
+            accessor: 'user_name',
+          },
+
         ],
       },
     ],
@@ -228,9 +245,10 @@ function EditableTable() {
   )
   
   function makeData() {
-    return ([
-      {"firstName": "pippo"}, {"lastName" : "topo"}, {"age" : "45"}, {"visit": "5"}, {"progress": "6"}, {"visit": "5"}, {"progress": "32"}, {"status": 'relationship'}],
-      [{"firstName": "pippo"}, {"lastName" : "topo"}, {"age" : "45"}, {"visit": "5"}, {"progress": "6"}, {"visit": "5"}, {"progress": "32"}, {"status": 'relationship'}]
+    return (
+      [{"patient_id": "a", "title": "a1"},
+       {"patient_id": "b","title" : "b1"},
+       {"patient_id": "c","title" : "c1"}]
       )
   };
 
