@@ -1,41 +1,43 @@
 import React from 'react';
+import { useTranslation} from 'react-i18next';
 import i18n from "../../../i18n"
 
 import "./Header.css"
 
 const lngs = {
     en: { nativeName: 'English' },
-    de: { nativeName: 'Deutsch' },
     it: { nativeName: 'Italiano' }
   };
 export function Header() {
 
     console.log("Header");
 
+    const { t } = useTranslation();
+
     return(
         <>
           <div className="navbar">
                 <div>
-                <a href="/HomePage">Home</a>
+                <a href="/HomePage">{t('menu.p1')}</a>
                 </div>
                 <div>
-                <a href="/About">About</a>
+                <a href="/About">{t('menu.p2')}</a>
                 </div>
                 <div>
-                <a href="/Contact">Contact</a>
+                <a href="/Contact">{t('menu.p3')}</a>
                 </div>
                 <div>
-                <a href="/Credits">Credits</a>
+                <a href="/Credits">{t('menu.p4')}</a>
                 </div>
                 <div className="dropdown">
-                    <button className="dropbtn">Services
+                    <button className="dropbtn">{t('menu.p5')}
                         <i className="fa fa-caret-down"></i>
                     </button>
                     <div className="dropdown-content">
-                        <a href="/Dashboard">Dashboard</a>
-                        <a href="/Prediction">Prediction</a>
-                        <a href="/AddAnnotation">Add Annotation</a>
-                        <a href="/ExportData">Export data</a>
+                        <a href="/Dashboard">{t('menu.p5_1')}</a>
+                        <a href="/Prediction">{t('menu.p5_2')}</a>
+                        <a href="/AddAnnotation">{t('menu.p5_3')}</a>
+                        <a href="/ExportData">{t('menu.p5_4')}</a>
                     </div>
                 </div>
                 <div className="push">

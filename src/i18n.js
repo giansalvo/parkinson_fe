@@ -19,6 +19,18 @@ i18n
     resources: {
       en: {
         translation: {
+            menu: {
+                p1: "Home",
+                p2: "About",
+                p3: "Contact",
+                p4: "Credits",
+                p5: "Services",
+                p5_1: "Dashboard",
+                p5_2: "Prediction",
+                p5_3: "Add Annotation",
+                p5_4: "Export Data",
+                p6: "Login"
+            },
             welcome_message: {
                 p1: "Welcome! This website uses a Neural Network Artificial Intelligence to identify and highlight the Substantia Nigra found in Parkinson\'s patients. You can either",
                 p2: " give it a try ",
@@ -34,6 +46,18 @@ i18n
     },
         it: {
             translation: {
+                menu: {
+                    p1: "Home",
+                    p2: "Il progetto",
+                    p3: "Contatti",
+                    p4: "Crediti",
+                    p5: "Servizi",
+                    p5_1: "Cruscotto",
+                    p5_2: "Predici",
+                    p5_3: "Aggiungi dati",
+                    p5_4: "Esporta dati",
+                    p6: "Login"
+                },
                 welcome_message: {
                     p1: "Benvenuto! Questo sito web usa una rete neurale che sfrutta l'intelligenza artificiale Intelligence per identificare e evidenziare la Substantia Nigra (SN) che si trova nei pazienti affetti dalla sindrome di Parkinson.und in Parkinson\'s patients. Su questo sito puoi",
                     p2: " provare una dimostrazione ",

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation} from 'react-i18next';
-import i18n from "../i18n"
 
 import "./HomePage.css"
 import {Header} from "../components/shared/Header/Header";
@@ -16,12 +15,6 @@ import img5 from "../images/img_ai5.jpg"
 const colors = ["#0088FE", "#00C49F", "#FFBB28", "red", "pink"];
 const delay = 2500;
 const img = [img1, img2, img3, img4, img5]
-
-const lngs = {
-  en: { nativeName: 'English' },
-  de: { nativeName: 'Deutsch' },
-  it: { nativeName: 'Italiano' }
-};
 
 function HomePage() {
 
