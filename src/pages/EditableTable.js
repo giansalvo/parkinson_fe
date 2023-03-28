@@ -367,8 +367,17 @@ function EditableTable() {
     })
   }
 
+  // TODO not working
   function resetForm(){
-    // TODO
+    setFields({...fields, sex:"A"})
+    setFields({...fields, sn_left_min:0})
+    setFields({...fields, sn_left_max:""})
+    setFields({...fields, sn_right_min:""})
+    setFields({...fields, sn_right_max:""})
+    setFields({...fields, birth_from:""})
+    setFields({...fields, birth_to:""})
+    setFields({...fields, visit_from:""})
+    setFields({...fields, visit_to:""})
   }
 
   const [data, setData] = React.useState(null)
