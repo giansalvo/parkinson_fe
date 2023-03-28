@@ -115,6 +115,10 @@ function Prediction() {
                       onChange={changeHandler} />
                   <br/>
                   <input className="button3" type="submit" />
+                  <br/><br/><br/>
+                  Chose an image of the midbrain and send it to the server.
+                  <br/>
+                  The artificial intelligence software will send back an image with the Substantia Nigra highlited in red (if it exists).
               </form>
           </div>
           <div className="column_images">

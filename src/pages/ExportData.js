@@ -33,8 +33,11 @@ function ExportData() {
         <div className="main_container">
             <Header/>
             <div className="message">
-            Here you can download all data records. The download should start shortly and take just a few seconds. This data can be used only for research purposes.
-            By clicking the following button you agree to follow our Terms & Conditions.
+            Here you can download all data records. The download should start shortly and take just a few seconds. 
+            <br/>
+            This data should be used only for research purposes.
+            <br/>
+            By clicking the following button you agree to these Terms & Conditions.
             <br/><br/>
             <center>
             <ExportToExcel apiData={data} fileName={fileName}/>
