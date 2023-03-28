@@ -7,6 +7,8 @@ import axios from "axios"
 import { Header } from "../components/shared/Header/Header";
 import { Footer } from "../components/shared/Footer/Footer";
 
+import "./Dashboard.css"
+
 const Styles = styled.div`
   padding: 1rem;
 
@@ -51,7 +53,20 @@ const Styles = styled.div`
     }
     
   }
-
+  .input {
+    font-size: 14px;
+    font-size: max(16px, 1em);
+    font-family: inherit;
+    padding:10px;
+    margin:10px;
+    background-color: #fff;
+    border: 2px solid var(--input-border);
+    border-radius: 4px;
+  }
+  .input:not(textarea) {
+    line-height: 1;
+    height: 2.25rem;
+  }
   .pagination {
     padding: 0.5rem;
   }
@@ -447,16 +462,16 @@ function EditableTable() {
           </div>
         <div className="column_dashboard">
            SN Right<br/>
-          <label htmlFor="sn_right_min">min</label>
-          <input type="number" id="sn_right_min" name="sn_right_min" min="0" {...register("sn_right_min")}/>
-          <label htmlFor="sn_right_max">max</label>
-          <input type="number" id="sn_right_max" name="sn_right_max" min="0" {...register("sn_right_max")}/>
+          {/* <label htmlFor="sn_right_min">min</label> */}
+          <input type="number" id="sn_right_min" name="sn_right_min" min="0" placeholder="min" {...register("sn_right_min")}/>
+          {/* <label htmlFor="sn_right_max">max</label> */}
+          <input type="number" id="sn_right_max" name="sn_right_max" min="0" placeholder="max"{...register("sn_right_max")}/>
           <br/><br/>
           SN Left<br/>
-          <label htmlFor="sn_left_min">min</label>
-          <input type="number" id="sn_left_min" name="sn_left_min" min="0" {...register("sn_left_min")}/>
-          <label htmlFor="sn_left_max">max</label>
-          <input type="number" id="sn_left_max" name="sn_left_max" min="0" {...register("sn_left_max")}/>
+          {/* <label htmlFor="sn_left_min">min</label> */}
+          <input type="number" id="sn_left_min" name="sn_left_min" min="0" placeholder="min" {...register("sn_left_min")}/>
+          {/* <label htmlFor="sn_left_max">max</label> */}
+          <input type="number" id="sn_left_max" name="sn_left_max" min="0" placeholder="max" {...register("sn_left_max")}/>
           </div>
           </div>
           

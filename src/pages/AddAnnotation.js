@@ -16,7 +16,8 @@ const Styles = styled.div`
     font-size: 14px;
     font-size: max(16px, 1em);
     font-family: inherit;
-    padding: 0.25em 0.5em;
+    padding:10px;
+    margin:10px;
     background-color: #fff;
     border: 2px solid var(--input-border);
     border-radius: 4px;
@@ -166,41 +167,41 @@ function AddAnnotation() {
                       accept='.png, .jpg, .jpeg'
                       onChange={(e)=>changeHandler(e, "image2")} />
                   <br/>
-                  <label htmlFor="title">Title: </label>
+                  {/* <label htmlFor="title">Title: </label>
+                  <br/> */}
+                  <input type="text" {...register("title", { required: true })} placeholder="Title"/>
                   <br/>
-                  <input {...register("title", { required: true })} />
+                  {/* <label htmlFor="description">Description: </label>
+                  <br/> */}
+                  <input type="text" {...register("description", { required: true })} placeholder="Description" />
                   <br/>
-                  <label htmlFor="description">Description: </label>
+                  {/* <label htmlFor="user_id">User ID: </label>
+                  <br/> */}
+                  <input {...register("user_id", { required: true })} placeholder="User ID"/>
                   <br/>
-                  <input {...register("description", { required: true })} />
-                  <br/>
-                  <label htmlFor="user_id">User ID: </label>
-                  <br/>
-                  <input {...register("user_id", { required: true })} />
-                  <br/>
-                  <label htmlFor="patient_id">Patient ID: </label>
-                  <br/>
-                  <input {...register("patient_id", { required: true })} />
+                  {/* <label htmlFor="patient_id">Patient ID: </label>
+                  <br/> */}
+                  <input type="text" {...register("patient_id", { required: true })} placeholder="Patient ID"/>
                   <br/>
                   <label htmlFor="visit_date">Visit Date</label>
                   <br/>
                   <input type="date" id="visit_date" name="visit_date" {...register("visit_date", { required: true })}/>
                   <br/>
-                  <label htmlFor="age_onset">Age at onset</label>
-                  <br/>
-                  <input type="number" id="age_onset" name="age_onset" {...register("age_onset", { required: true })}/>
+                  {/* <label type="text" htmlFor="age_onset">Age at onset</label>
+                  <br/> */}
+                  <input type="number" id="age_onset" name="age_onset" min="0" {...register("age_onset", { required: true })} placeholder="Age at onset"/>
                   <br/>
                   <label htmlFor="birth_date">Birth Date</label>
                   <br/>
-                  <input type="date" id="birth_date" name="birth_date" {...register("birth_date", { required: true })}/>
+                  <input type="date" id="birth_date" name="birth_date" {...register("birth_date", { required: true })} />
                   <br/>
-                  <label htmlFor="sn_right">SN Right</label>
+                  {/* <label htmlFor="sn_right">SN Right</label>
+                  <br/> */}
+                  <input type="number" id="sn_right" name="sn_right" min="0" {...register("sn_right", { required: true })}placeholder="SN right"/>
                   <br/>
-                  <input type="number" id="sn_right" name="sn_right" min="0" {...register("sn_right", { required: true })}/>
-                  <br/>
-                  <label htmlFor="sn_left">SN Left</label>
-                  <br/>
-                  <input type="number" id="sn_left" name="sn_left" min="0" {...register("sn_left", { required: true })}/>
+                  {/* <label htmlFor="sn_left">SN Left</label>
+                  <br/> */}
+                  <input type="number" id="sn_left" name="sn_left" min="0" {...register("sn_left", { required: true })} placeholder="SN left"/>
                   <br/>
                   <label htmlFor="sex">Sex</label>
                   <select id="sex" name="sex" {...register("sex", { required: true })}>
