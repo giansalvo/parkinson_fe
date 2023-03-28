@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import styled from 'styled-components'
 
 import "./Prediction.css"
 import {Header} from "../components/shared/Header/Header";
@@ -10,7 +11,21 @@ import image_placeholder from "../images/image_placeholder.png"
 import { Footer } from "../components/shared/Footer/Footer";
 
 const imageMimeType = /image\/(png|jpg|jpeg)/i;
-
+const Styles = styled.div`
+  .input {
+    font-size: 14px;
+    font-size: max(16px, 1em);
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    background-color: #fff;
+    border: 2px solid var(--input-border);
+    border-radius: 4px;
+  }
+  .input:not(textarea) {
+    line-height: 1;
+    height: 2.25rem;
+  }
+`
 function AddAnnotation() {
 
   console.log("AddAnnotation")
@@ -146,7 +161,7 @@ function AddAnnotation() {
                   <input type="file" {...register("image", { required: true })} 
                       accept='.png, .jpg, .jpeg'
                       onChange={(e)=>changeHandler(e, "image1")} />
-                  <label htmlFor="annotation">Annotation image: </label>
+                  <label htmlFor="annotation">Traced image: </label>
                   <input type="file" {...register("annotation", { required: true })} 
                       accept='.png, .jpg, .jpeg'
                       onChange={(e)=>changeHandler(e, "image2")} />
@@ -211,7 +226,7 @@ function AddAnnotation() {
               </div> : <img src = {image_placeholder} width="100%" alt="placeholder"/>}
           </div>
           <div className="column_images">
-              <h2>Ground Truth image</h2>
+              <h2>Traced Image</h2>
               {fileDataURL2 ?
               <div className="img-preview-wrapper">
               {
