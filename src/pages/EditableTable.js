@@ -236,8 +236,8 @@ function EditableTable() {
             accessor: 'description',
           },
           {
-            Header: 'Age',
-            accessor: 'age',
+            Header: 'Age at onset',
+            accessor: 'age_onset',
           },
           {
             Header: 'Sex',

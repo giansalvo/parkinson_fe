@@ -27,7 +27,7 @@ function AddAnnotation() {
         title: "",
         description: "",
         patient_id: "",
-        patient_age: "",
+        age_onset: "",
         sn_right: 0,
         sn_left: 0,
         birth_date: null,
@@ -105,7 +105,7 @@ function AddAnnotation() {
         formData.append("title", data.title);
         formData.append("description", data.description);
         formData.append("patient_id", data.patient_id);
-        // formData.append("patient_age", data.patient_age);
+        formData.append("age_onset", data.age_onset);
         formData.append("sn_right", data.sn_right)
         formData.append("sn_left", data.sn_left)
         formData.append("sex", data.sex)
@@ -171,13 +171,20 @@ function AddAnnotation() {
                   <br/>
                   <input type="date" id="visit_date" name="visit_date" {...register("visit_date", { required: true })}/>
                   <br/>
+                  <label htmlFor="age_onset">Age at onset</label>
+                  <br/>
+                  <input type="number" id="age_onset" name="age_onset" {...register("age_onset", { required: true })}/>
+                  <br/>
                   <label htmlFor="birth_date">Birth Date</label>
+                  <br/>
                   <input type="date" id="birth_date" name="birth_date" {...register("birth_date", { required: true })}/>
                   <br/>
                   <label htmlFor="sn_right">SN Right</label>
+                  <br/>
                   <input type="number" id="sn_right" name="sn_right" min="0" {...register("sn_right", { required: true })}/>
                   <br/>
                   <label htmlFor="sn_left">SN Left</label>
+                  <br/>
                   <input type="number" id="sn_left" name="sn_left" min="0" {...register("sn_left", { required: true })}/>
                   <br/>
                   <label htmlFor="sex">Sex</label>
