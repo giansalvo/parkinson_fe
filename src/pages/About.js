@@ -42,7 +42,7 @@ function HomePage() {
             <img src={img2} alt="Artificial Intelligence"/>
           </div>
           <div class="text">
-          This project is the result of a PhD research in the course of Basic Lifesciences and Biotechnologies at <a href="https://www.uniss.it" target="_blank">University of Sassari</a>
+          This project is the result of a PhD research in the course of Basic Lifesciences and Biotechnologies at <a href="https://www.uniss.it" target="_blank" rel="noreferrer">University of Sassari</a>
           <br/><br/>
           Our aim is to design and build a Computer Aided Detection (CAD) system that could perform automatic Parkinson's disease (PD) detection as efficiently as a human expert.
           <br/><br/>

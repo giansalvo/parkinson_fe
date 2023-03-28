@@ -211,7 +211,6 @@ function EditableTable() {
     sn_left_max: "",
     sn_right_min: "",
     sn_right_max: "",
-    sn_right_min: "",
     birth_from: "",
     birth_to: "",
     visit_from: "",
@@ -271,8 +270,6 @@ function EditableTable() {
     []
   )
   
-  const url = "http://[::1]:8438/prediction/do-dashboard/"
-
   function onSubmit (data) {
       console.log("Data:", data)
     

@@ -17,7 +17,6 @@ function Dashboard() {
     sn_left_max: "",
     sn_right_min: "",
     sn_right_max: "",
-    sn_right_min: "",
     birth_from: "",
     birth_to: "",
     visit_from: "",

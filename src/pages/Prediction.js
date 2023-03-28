@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import fileDownload from 'js-file-download'
 
 import "./Prediction.css"
 import {Header} from "../components/shared/Header/Header";
@@ -30,8 +29,6 @@ function Prediction() {
         user_id: 1});
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-
-    // var FileSaver = require('file-saver');
 
     const changeHandler = (e) => {
         const file = e.target.files[0];
@@ -96,7 +93,6 @@ function Prediction() {
             const blob = new Blob( [ bytes ] );
             const url = URL.createObjectURL( blob );
             setPrediction(url);
-            // fileDownload(prediction, "pippo.jpg")
         })
         .catch((err) => {
             console.log("Error: " + err);
