@@ -1,5 +1,5 @@
 import { BrowserRouter, Switch } from "react-router-dom";
-import { useHistory, Route } from 'react-router'
+import { Route } from 'react-router'
 import HomePage from "../pages/HomePage";
 import Prediction from "../pages/Prediction";
 import SignIn from "../pages/SignIn"
