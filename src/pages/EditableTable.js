@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useForm } from "react-hook-form";
 import styled from 'styled-components'
 import { useTable, usePagination } from 'react-table'
 import axios from "axios"
 
+import { Header } from "../components/shared/Header/Header";
+import { Footer } from "../components/shared/Footer/Footer";
 
 const Styles = styled.div`
   padding: 1rem;
@@ -79,7 +82,9 @@ const EditableCell = ({
     setValue(initialValue)
   }, [initialValue])
 
-  return <input value={value} onChange={onChange} onBlur={onBlur} />
+  // TODO make editable fields
+  // return <input value={value} onChange={onChange} onBlur={onBlur} />
+  return <>{value}</>
 }
 
 // Set our editable cell renderer as the default Cell renderer
@@ -199,6 +204,21 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
 }
 
 function EditableTable() {
+
+  const [fields, setFields] = useState({
+    sex: "",
+    sn_left_min: "",
+    sn_left_max: "",
+    sn_right_min: "",
+    sn_right_max: "",
+    sn_right_min: "",
+    birth_from: "",
+    birth_to: "",
+    visit_from: "",
+    visit_to: ""});
+
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
   const columns = React.useMemo(
     () => [
       {
@@ -253,7 +273,83 @@ function EditableTable() {
   
   const url = "http://[::1]:8438/prediction/do-dashboard/"
 
-  function getData() {
+  function onSubmit (data) {
+      console.log("Data:", data)
+    
+      let param = ""
+      let started = false
+      if (data.sex) {
+        if (started) {
+          param = param + "&"
+        }
+        param = param + "sex=" + data.sex;
+        started = true
+      }
+      if (data.sn_left_min) {
+        if (started) {
+          param = param + "&"
+        }
+        param = param + "sn_left_min=" + data.sn_left_min;
+        started = true
+      }
+      if (data.sn_left_max) {
+        if (started) {
+          param = param + "&"
+        }
+        param = param + "sn_left_max=" + data.sn_left_max;
+        started = true
+      }
+      if (data.sn_right_min) {
+        if (started) {
+          param = param + "&"
+        }
+        param = param + "sn_right_min=" + data.sn_right_min;
+        started = true
+      }
+      if (data.sn_right_max) {
+        if (started) {
+          param = param + "&"
+        }
+        param = param + "sn_right_max=" + data.sn_right_max;
+        started = true
+      }
+      if (data.visit_from) {
+        if (started) {
+          param = param + "&"
+        }
+        param = param + "visit_from=" + data.visit_from;
+        started = true
+      }
+      if (data.visit_to) {
+        if (started) {
+          param = param + "&"
+        }
+        param = param + "visit_to=" + data.visit_to;
+        started = true
+      }
+      if (data.birth_from) {
+        if (started) {
+          param = param + "&"
+        }
+        param = param + "birth_from=" + data.birth_from;
+        started = true
+      }
+      if (data.birth_to) {
+        if (started) {
+          param = param + "&"
+        }
+        param = param + "birth_to=" + data.birth_to;
+        started = true
+      }
+   
+      if (param) {
+        param = "?"+param
+      }
+  
+      console.log("param:"+param)
+      const url = "http://[::1]:8438/prediction/do-dashboard/" + param
+      console.log(url)
+
     axios
     .get(url,
         "",
@@ -274,13 +370,9 @@ function EditableTable() {
     })
   }
 
-  function makeData() {
-    return (
-      [{"patient_id": "a", "title": "a1"},
-       {"patient_id": "b","title" : "b1"},
-       {"patient_id": "c","title" : "c1"}]
-      )
-  };
+  function resetForm(){
+    // TODO
+  }
 
   const [data, setData] = React.useState(null)
   const [originalData] = React.useState(data)
@@ -320,17 +412,66 @@ function EditableTable() {
   const resetData = () => setData(originalData)
 
   return (
-    <Styles>
-      <button onClick={getData}>Get Data</button>
-      <button onClick={resetData}>Reset Data</button>
-      {data && (<Table
-        columns={columns}
-        data={data}
-        updateMyData={updateMyData}
-        skipPageReset={skipPageReset}
-      />)}
-    </Styles>
+    <div className="main_container">
+      <Header/>
+      <Styles>
+        <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="row_dashboard">
+        <div className="column_dashboard">
+          Date of Visit
+          <br/>
+          <label htmlFor="visit_from">From:</label>
+          <input type="date" id="visit_from" name="visit_from" {...register("visit_from")}/>
+          <label htmlFor="visit_to">To:</label>
+          <input type="date" id="visit_to" name="visit_to" {...register("visit_to")}/>
+          <br/><br/>
+          Date of birth
+          <br/>
+          <label htmlFor="birth_from">From:</label>
+          <input type="date" id="birth_from" name="birth_from" {...register("birth_from")}/>
+          <label htmlFor="birth_to">To:</label>
+          <input type="date" id="birth_to" name="birth_to" {...register("birth_to")}
+          /><br/><br/>
+          <label htmlFor="sex">Sex:</label>
+          <select name="sex" id="sex" {...register("sex")}>
+            <option value='A'>All</option>
+            <option value='M'>Male</option>
+            <option value='F'>Female</option>
+          </select><br/><br/>
+          </div>
+        <div className="column_dashboard">
+           SN Right<br/>
+          <label htmlFor="sn_right_min">min</label>
+          <input type="number" id="sn_right_min" name="sn_right_min" min="0" {...register("sn_right_min")}/>
+          <label htmlFor="sn_right_max">max</label>
+          <input type="number" id="sn_right_max" name="sn_right_max" min="0" {...register("sn_right_max")}/>
+          <br/><br/>
+          SN Left<br/>
+          <label htmlFor="sn_left_min">min</label>
+          <input type="number" id="sn_left_min" name="sn_left_min" min="0" {...register("sn_left_min")}/>
+          <label htmlFor="sn_left_max">max</label>
+          <input type="number" id="sn_left_max" name="sn_left_max" min="0" {...register("sn_left_max")}/>
+          </div>
+          </div>
+          
+          {errors.visit_from       && <span>This field is required</span>}
+          {errors.sn_left_min       && <span>This field is required</span>}
+
+          <input className="button3" type="submit"/>
+          <input className="button3" type="reset" onClick={resetForm}/>
+          
+        </form>
+        <button className="button3" onClick={resetData}>Reset Table</button>
+        {data && (<Table
+          columns={columns}
+          data={data}
+          updateMyData={updateMyData}
+          skipPageReset={skipPageReset}
+        />)}
+      </Styles>
+      <Footer/>
+    </div>
   )
 }
 
-export default EditableTable
+export default EditableTable;
