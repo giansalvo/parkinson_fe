@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components'
+import { useTranslation} from 'react-i18next';
 
 import "./HomePage.css"
 import {Header} from "../components/shared/Header/Header";
@@ -33,18 +34,20 @@ function HomePage() {
 
   console.log("HomePage")
 
- return (
+  const { t } = useTranslation();
+
+  return (
       <div className="main_container">
         <Header/>
         <Styles>
         <div class="container">
         <div class="text">
-          We would like to build a bigger dataset. For this raison we are open for collaborations with other researchers and doctors.
+            {t('contact.p1')}
             <br/><br/>
-            For futher information about artificial intelligence applied to Parkinson's disease early detection or for participating to this project, please send an email to: 
+            {t('contact.p2')}
             <br/><br/>
             <center>
-            <a href="mailto:g.gusinu@phd.uniss.it">g.gusinu@phd.uniss.it</a>
+            <a href="mailto:g.gusinu@phd.uniss.it">{t('contact.p3')}</a>
             </center>
           </div>
           <div class="image">

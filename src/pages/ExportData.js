@@ -1,6 +1,8 @@
 import React from "react";
 import axios from 'axios'
+import { useTranslation} from 'react-i18next';
 import {ExportToExcel} from './ExportToExcel'
+
 import "./HomePage.css"
 import {Header} from "../components/shared/Header/Header";
 import { Footer } from "../components/shared/Footer/Footer";
@@ -10,6 +12,7 @@ function ExportData() {
 
   console.log("ExportData")
 
+  const { t } = useTranslation();
   const [data, setData] = React.useState([])
   const fileName = "dataset_sn_ai"; // here enter filename for your excel file
 
@@ -33,11 +36,11 @@ function ExportData() {
         <div className="main_container">
             <Header/>
             <div className="message">
-            Here you can download all data records. The download should start shortly and take just a few seconds. 
+            {t('export.p1')}
             <br/>
-            This data should be used only for research purposes.
+            {t('export.p2')}
             <br/>
-            By clicking the following button you agree to these Terms & Conditions.
+            {t('export.p3')}
             <br/><br/>
             <center>
             <ExportToExcel apiData={data} fileName={fileName}/>

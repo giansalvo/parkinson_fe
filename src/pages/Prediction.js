@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { useTranslation} from 'react-i18next';
 
 import "./Prediction.css"
 import {Header} from "../components/shared/Header/Header";
@@ -14,6 +15,8 @@ const imageMimeType = /image\/(png|jpg|jpeg)/i;
 function Prediction() {
 
   console.log("Prediction")
+
+    const { t } = useTranslation();
 
     const [file, setFile] = useState(null);
     const [fileDataURL, setFileDataURL] = useState(null);
@@ -105,20 +108,20 @@ function Prediction() {
         <div className="row">
           <div className="column_form">
               <form onSubmit={handleSubmit(onSubmit)}>
-                  <label htmlFor="image">Image: </label>
+                  <label htmlFor="image">{t('prediction.p5')} </label>
                   <input type="file" {...register("image", { required: true })} 
                       accept='.png, .jpg, .jpeg'
                       onChange={changeHandler} />
                   <br/>
                   <input className="button3" type="submit" />
                   <br/><br/><br/>
-                  Chose an image of the midbrain and send it to the server.
+                  {t('prediction.p1')}
                   <br/>
-                  The artificial intelligence software will send back an image with the Substantia Nigra highlited in red (if it exists).
+                  {t('prediction.p2')}
               </form>
           </div>
           <div className="column_images">
-              <h2>Patient image</h2>
+              <h2>{t('prediction.p3')}</h2>
               {fileDataURL ?
               <div className="img-preview-wrapper">
               {
@@ -127,7 +130,7 @@ function Prediction() {
               </div> : <img src = {image_placeholder} width="100%" alt="placeholder"/>}
           </div>
           <div className="column_images">
-              <h2>Substantia Nigra (in red)</h2>
+              <h2>{t('prediction.p4')}</h2>
               {prediction ?
               <div className="img-preview-wrapper">
               {

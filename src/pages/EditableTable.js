@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import styled from 'styled-components'
 import { useTable, usePagination } from 'react-table'
 import axios from "axios"
+import { useTranslation} from 'react-i18next';
 
 import { Header } from "../components/shared/Header/Header";
 import { Footer } from "../components/shared/Footer/Footer";
@@ -220,6 +221,8 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
 
 function EditableTable() {
 
+  const { t } = useTranslation();
+
   const [fields, setFields] = useState({
     sex: "",
     sn_left_min: "",
@@ -239,43 +242,43 @@ function EditableTable() {
         Header: 'Info',
         columns: [
           {
-            Header: 'Patient ID',
+            Header: t('dashboard.p1'),
             accessor: 'patient_id',
           },
           {
-            Header: 'Title',
+            Header: t('dashboard.p2'),
             accessor: 'title',
           },
           {
-            Header: 'Description',
+            Header: t('dashboard.p3'),
             accessor: 'description',
           },
           {
-            Header: 'Age at onset',
+            Header: t('dashboard.p4'),
             accessor: 'age_onset',
           },
           {
-            Header: 'Sex',
+            Header: t('dashboard.p5'),
             accessor: 'sex',
           },
           {
-            Header: 'Birth date',
+            Header: t('dashboard.p6'),
             accessor: 'birth_date',
           },
           {
-            Header: 'Visit date',
+            Header: t('dashboard.p7'),
             accessor: 'visit_date',
           },
           {
-            Header: 'SN right',
+            Header: t('dashboard.p8'),
             accessor: 'sn_right',
           },
           {
-            Header: 'SN left',
+            Header: t('dashboard.p9'),
             accessor: 'sn_left',
           },
           {
-            Header: 'Username',
+            Header: t('dashboard.p10'),
             accessor: 'user_name',
           },
 
@@ -439,35 +442,35 @@ function EditableTable() {
         <form onSubmit={handleSubmit(onSubmit)}>
         <div className="row_dashboard">
         <div className="column_dashboard">
-          Date of Visit
+        {t('dashboard.p11')}
           <br/>
-          <label htmlFor="visit_from">From:</label>
+          <label htmlFor="visit_from">{t('dashboard.p12')}</label>
           <input type="date" id="visit_from" name="visit_from" {...register("visit_from")}/>
-          <label htmlFor="visit_to">To:</label>
+          <label htmlFor="visit_to">{t('dashboard.p13')}</label>
           <input type="date" id="visit_to" name="visit_to" {...register("visit_to")}/>
           <br/><br/>
-          Date of birth
+          {t('dashboard.p14')}
           <br/>
-          <label htmlFor="birth_from">From:</label>
+          <label htmlFor="birth_from">{t('dashboard.p15')}</label>
           <input type="date" id="birth_from" name="birth_from" {...register("birth_from")}/>
-          <label htmlFor="birth_to">To:</label>
+          <label htmlFor="birth_to">{t('dashboard.p16')}</label>
           <input type="date" id="birth_to" name="birth_to" {...register("birth_to")}
           /><br/><br/>
-          <label htmlFor="sex">Sex:</label>
+          <label htmlFor="sex">{t('dashboard.p17')}</label>
           <select name="sex" id="sex" {...register("sex")}>
-            <option value='A'>All</option>
-            <option value='M'>Male</option>
-            <option value='F'>Female</option>
+            <option value='A'>{t('dashboard.p20')}</option>
+            <option value='M'>{t('dashboard.p21')}</option>
+            <option value='F'>{t('dashboard.p22')}</option>
           </select><br/><br/>
           </div>
         <div className="column_dashboard">
-           SN Right<br/>
+        {t('dashboard.p18')}<br/>
           {/* <label htmlFor="sn_right_min">min</label> */}
           <input type="number" id="sn_right_min" name="sn_right_min" min="0" placeholder="min" {...register("sn_right_min")}/>
           {/* <label htmlFor="sn_right_max">max</label> */}
           <input type="number" id="sn_right_max" name="sn_right_max" min="0" placeholder="max"{...register("sn_right_max")}/>
           <br/><br/>
-          SN Left<br/>
+          {t('dashboard.p19')}<br/>
           {/* <label htmlFor="sn_left_min">min</label> */}
           <input type="number" id="sn_left_min" name="sn_left_min" min="0" placeholder="min" {...register("sn_left_min")}/>
           {/* <label htmlFor="sn_left_max">max</label> */}
@@ -482,7 +485,7 @@ function EditableTable() {
           <input className="button3" type="reset" onClick={resetForm}/>
           
         </form>
-        <button className="button3" onClick={resetData}>Reset Table</button>
+        <button className="button3" onClick={resetData}>{t('dashboard.p23')}</button>
         {data && (<Table
           columns={columns}
           data={data}

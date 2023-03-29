@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import styled from 'styled-components'
+import { useTranslation} from 'react-i18next';
 
 import "./Prediction.css"
 import {Header} from "../components/shared/Header/Header";
@@ -29,7 +30,9 @@ const Styles = styled.div`
 `
 function AddAnnotation() {
 
-  console.log("AddAnnotation")
+    console.log("AddAnnotation")
+
+    const { t } = useTranslation();
 
     const [file, setFile] = useState(null);
     const [file2, setFile2] = useState(null);
@@ -158,67 +161,53 @@ function AddAnnotation() {
         <div className="row">
           <div className="column_form">
               <form onSubmit={handleSubmit(onSubmit)}>
-                  <label htmlFor="image">Patient's Image: </label>
+                  <label htmlFor="image">{t('add_annotation.p1')} </label>
                   <input type="file" {...register("image", { required: true })} 
                       accept='.png, .jpg, .jpeg'
                       onChange={(e)=>changeHandler(e, "image1")} />
-                  <label htmlFor="annotation">Traced image: </label>
+                  <label htmlFor="annotation">{t('add_annotation.p2')}</label>
                   <input type="file" {...register("annotation", { required: true })} 
                       accept='.png, .jpg, .jpeg'
                       onChange={(e)=>changeHandler(e, "image2")} />
                   <br/>
-                  {/* <label htmlFor="title">Title: </label>
-                  <br/> */}
-                  <input type="text" {...register("title", { required: true })} placeholder="Title"/>
+                  <input type="text" {...register("title", { required: true })} placeholder={t('add_annotation.p3')}/>
                   <br/>
-                  {/* <label htmlFor="description">Description: </label>
-                  <br/> */}
-                  <input type="text" {...register("description", { required: true })} placeholder="Description" />
+                  <input type="text" {...register("description", { required: true })} placeholder={t('add_annotation.p4')} />
                   <br/>
-                  {/* <label htmlFor="user_id">User ID: </label>
-                  <br/> */}
-                  <input {...register("user_id", { required: true })} placeholder="User ID"/>
+                  <input {...register("user_id", { required: true })} placeholder={t('add_annotation.p5')}/>
                   <br/>
-                  {/* <label htmlFor="patient_id">Patient ID: </label>
-                  <br/> */}
-                  <input type="text" {...register("patient_id", { required: true })} placeholder="Patient ID"/>
+                  <input type="text" {...register("patient_id", { required: true })} placeholder={t('add_annotation.p6')}/>
                   <br/>
-                  <label htmlFor="visit_date">Visit Date</label>
+                  <label htmlFor="visit_date">{t('add_annotation.p7')}</label>
                   <br/>
                   <input type="date" id="visit_date" name="visit_date" {...register("visit_date", { required: true })}/>
                   <br/>
-                  {/* <label type="text" htmlFor="age_onset">Age at onset</label>
-                  <br/> */}
-                  <input type="number" id="age_onset" name="age_onset" min="0" {...register("age_onset", { required: true })} placeholder="Age at onset"/>
+                  <input type="number" id="age_onset" name="age_onset" min="0" {...register("age_onset", { required: true })} placeholder={t('add_annotation.p8')}/>
                   <br/>
-                  <label htmlFor="birth_date">Birth Date</label>
+                  <label htmlFor="birth_date">{t('add_annotation.p9')}</label>
                   <br/>
                   <input type="date" id="birth_date" name="birth_date" {...register("birth_date", { required: true })} />
                   <br/>
-                  {/* <label htmlFor="sn_right">SN Right</label>
-                  <br/> */}
-                  <input type="number" id="sn_right" name="sn_right" min="0" {...register("sn_right", { required: true })}placeholder="SN right"/>
+                  <input type="number" id="sn_right" name="sn_right" min="0" {...register("sn_right", { required: true })}placeholder={t('add_annotation.p10')}/>
                   <br/>
-                  {/* <label htmlFor="sn_left">SN Left</label>
-                  <br/> */}
-                  <input type="number" id="sn_left" name="sn_left" min="0" {...register("sn_left", { required: true })} placeholder="SN left"/>
+                  <input type="number" id="sn_left" name="sn_left" min="0" {...register("sn_left", { required: true })} placeholder={t('add_annotation.p11')}/>
                   <br/>
-                  <label htmlFor="sex">Sex</label>
+                  <label htmlFor="sex">{t('add_annotation.p12')}</label>
                   <select id="sex" name="sex" {...register("sex", { required: true })}>
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
+                    <option value="M">{t('add_annotation.p13')}</option>
+                    <option value="F">{t('add_annotation.p14')}</option>
                   </select>
                   <br/><br/>
                   {(errors.title ||  errors.patient_id || errors.sex || errors.sn_left ||
                   errors.sn_right || errors.birth_date || errors.visit_date || errors.image ||
                   errors.annotation) 
-                  && <span><b>All fields are required</b></span>}
+                  && <span><b>{t('add_annotation.p15')}</b></span>}
                   <br/><br/>
                   <input className="button3" type="submit" />
               </form>
           </div>
           <div className="column_images">
-              <h2>Untraced Patient Image</h2>
+              <h2>{t('add_annotation.p16')}</h2>
               {fileDataURL ?
               <div className="img-preview-wrapper">
               {
@@ -227,7 +216,7 @@ function AddAnnotation() {
               </div> : <img src = {image_placeholder} width="100%" alt="placeholder"/>}
           </div>
           <div className="column_images">
-              <h2>Traced Image</h2>
+              <h2>{t('add_annotation.p17')}</h2>
               {fileDataURL2 ?
               <div className="img-preview-wrapper">
               {

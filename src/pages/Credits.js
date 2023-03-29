@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components'
+import { useTranslation} from 'react-i18next';
 
 import "./HomePage.css"
 import {Header} from "../components/shared/Header/Header";
@@ -33,6 +34,8 @@ function Credits() {
 
   console.log("Credits")
 
+  const { t } = useTranslation();
+
   return (
       <div className="main_container">
         <Header/>
@@ -42,11 +45,11 @@ function Credits() {
             <img src={img5} alt="Artificial Intelligence"/>
           </div>
           <div class="text">
-          This research was developed by Giansalvo Gusinu, Dr Claudia Frau, Prof. Giuseppe A. Trunfio, Prof. Paolo Solla and Prof. Leonardo A. Sechi at <a href="https://www.uniss.it" target="_blank" rel="noreferrer">UNISS</a>
+          {t('credits.p1')} <a href="https://www.uniss.it" target="_blank" rel="noreferrer">{t('credits.p2')}</a>
           <br/><br/>
-          The website was realized in collaboration with the company <a href="https://abinsula.com" target="_blank"  rel="noreferrer">Abinsula</a>, one of the main Italian players in Embedded, IoT, Web and Mobile solutions.
+          {t('credits.p3')}<a href="https://abinsula.com" target="_blank"  rel="noreferrer">{t('credits.p4')}</a>{t('credits.p5')}
           <br/><br/>
-          The funds for the scholarship were obtained from Italian Ministry of Education through <a href="https://www.istruzione.it/pon/index.html" target="_blank"  rel="noreferrer">PON project 2014-2020</a>.
+          {t('credits.p6')}<a href="https://www.istruzione.it/pon/index.html" target="_blank"  rel="noreferrer">{t('credits.p7')}</a>.
           </div>
         </div>
         </Styles>
