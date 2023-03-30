@@ -40,11 +40,11 @@ function Credits() {
       <div className="main_container">
         <Header/>
         <Styles>
-        <div class="container">
-          <div class="image">
+        <div className="container">
+          <div className="image">
             <img src={img5} alt="Artificial Intelligence"/>
           </div>
-          <div class="text">
+          <div className="text">
           {t('credits.p1')} <a href="https://www.uniss.it" target="_blank" rel="noreferrer">{t('credits.p2')}</a>
           <br/><br/>
           {t('credits.p3')}<a href="https://abinsula.com" target="_blank"  rel="noreferrer">{t('credits.p4')}</a>{t('credits.p5')}

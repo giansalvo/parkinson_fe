@@ -40,8 +40,8 @@ function HomePage() {
       <div className="main_container">
         <Header/>
         <Styles>
-        <div class="container">
-        <div class="text">
+        <div className="container">
+        <div className="text">
             {t('contact.p1')}
             <br/><br/>
             {t('contact.p2')}
@@ -50,7 +50,7 @@ function HomePage() {
             <a href="mailto:g.gusinu@phd.uniss.it">{t('contact.p3')}</a>
             </center>
           </div>
-          <div class="image">
+          <div className="image">
             <img src={img4} alt="Artificial Intelligence"/>
           </div>
         </div>

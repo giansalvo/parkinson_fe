@@ -481,7 +481,7 @@ function EditableTable() {
           <input className="button3" type="reset" onClick={resetForm}/>
           
         </form>
-        <button className="button3" onClick={resetData}>{t('dashboard.p23')}</button>
+        {/* <button className="button3" onClick={resetData}>{t('dashboard.p23')}</button> */}
         {data && (<Table
           columns={columns}
           data={data}

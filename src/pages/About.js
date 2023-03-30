@@ -40,11 +40,11 @@ function HomePage() {
       <div className="main_container">
         <Header/>
         <Styles>
-        <div class="container">
-          <div class="image">
+        <div className="container">
+          <div className="image">
             <img src={img2} alt="Artificial Intelligence"/>
           </div>
-          <div class="text">
+          <div className="text">
           {t('about.p1')} <a href="https://www.uniss.it" target="_blank" rel="noreferrer">{t('about.p2')}</a>
           <br/><br/>
           {t('about.p3')}
