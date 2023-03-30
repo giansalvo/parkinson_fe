@@ -387,6 +387,7 @@ function EditableTable() {
 
   // TODO not working
   function resetForm(){
+    console.log("resetForm")
     setFields({...fields, sex:"A"})
     setFields({...fields, sn_left_min:0})
     setFields({...fields, sn_left_max:""})
@@ -465,15 +466,11 @@ function EditableTable() {
           </div>
         <div className="column_dashboard">
         {t('dashboard.p18')}<br/>
-          {/* <label htmlFor="sn_right_min">min</label> */}
           <input type="number" id="sn_right_min" name="sn_right_min" min="0" placeholder="min" {...register("sn_right_min")}/>
-          {/* <label htmlFor="sn_right_max">max</label> */}
           <input type="number" id="sn_right_max" name="sn_right_max" min="0" placeholder="max"{...register("sn_right_max")}/>
           <br/><br/>
           {t('dashboard.p19')}<br/>
-          {/* <label htmlFor="sn_left_min">min</label> */}
           <input type="number" id="sn_left_min" name="sn_left_min" min="0" placeholder="min" {...register("sn_left_min")}/>
-          {/* <label htmlFor="sn_left_max">max</label> */}
           <input type="number" id="sn_left_max" name="sn_left_max" min="0" placeholder="max" {...register("sn_left_max")}/>
           </div>
           </div>
