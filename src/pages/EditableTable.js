@@ -234,7 +234,7 @@ function EditableTable() {
     visit_from: "",
     visit_to: ""});
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, setValue } = useForm();
 
   const columns = React.useMemo(
     () => [
@@ -385,18 +385,17 @@ function EditableTable() {
     })
   }
 
-  // TODO not working
   function resetForm(){
     console.log("resetForm")
-    setFields({...fields, sex:"A"})
-    setFields({...fields, sn_left_min:0})
-    setFields({...fields, sn_left_max:""})
-    setFields({...fields, sn_right_min:""})
-    setFields({...fields, sn_right_max:""})
-    setFields({...fields, birth_from:""})
-    setFields({...fields, birth_to:""})
-    setFields({...fields, visit_from:""})
-    setFields({...fields, visit_to:""})
+    setValue('sex', 'A')
+    setValue('sn_left_min', '0')    
+    setValue('sn_left_max', '')
+    setValue('sn_right_min', '')
+    setValue('sn_right_max', '')
+    setValue('birth_from', '')
+    setValue('birth_to', '')
+    setValue('visit_from', '')
+    setValue('visit_to', '')
   }
 
   const [data, setData] = React.useState(null)
