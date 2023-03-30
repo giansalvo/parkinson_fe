@@ -133,10 +133,10 @@ i18n
                     p6: "Login"
                 },
                 welcome_message: {
-                    p1: "Benvenuto! Questo sito web usa una rete neurale che sfrutta l'intelligenza artificiale Intelligence per identificare e evidenziare la Substantia Nigra (SN) che si trova nei pazienti affetti dalla sindrome di Parkinson.und in Parkinson\'s patients. Su questo sito puoi",
+                    p1: "Benvenuto! Questo sito web usa una rete neurale che sfrutta l'intelligenza artificiale per identificare e evidenziare la Substantia Nigra (SN) che si trova nei pazienti affetti dalla sindrome di Parkinson. Su questo sito puoi",
                     p2: " provare una dimostrazione ",
                     p3: " oppure ",
-                    p4: " registrarti al sito ",
+                    p4: " registrarti ",
                     p5: " per partecipare al progetto mandando nuove immagini. In questo caso aiuterai a sviluppare un sistema più efficiente.",
                 },
                 about: {
