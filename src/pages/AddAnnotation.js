@@ -170,13 +170,13 @@ function AddAnnotation() {
                       accept='.png, .jpg, .jpeg'
                       onChange={(e)=>changeHandler(e, "image2")} />
                   <br/>
-                  <input type="text" {...register("title", { required: true })} placeholder={t('add_annotation.p3')}/>
+                  <input type="text" {...register("title", { required: true })} placeholder={t('add_annotation.p3')} autoComplete="off"/>
                   <br/>
-                  <input type="text" {...register("description", { required: true })} placeholder={t('add_annotation.p4')} />
+                  <input type="text" {...register("description", { required: true })} placeholder={t('add_annotation.p4')} autoComplete="off"/>
                   <br/>
-                  <input {...register("user_id", { required: true })} placeholder={t('add_annotation.p5')}/>
+                  <input {...register("user_id", { required: true })} placeholder={t('add_annotation.p5')} autoComplete="off"/>
                   <br/>
-                  <input type="text" {...register("patient_id", { required: true })} placeholder={t('add_annotation.p6')}/>
+                  <input type="text" {...register("patient_id", { required: true })} placeholder={t('add_annotation.p6')} autoComplete="off"/>
                   <br/>
                   <label htmlFor="visit_date">{t('add_annotation.p7')}</label>
                   <br/>
