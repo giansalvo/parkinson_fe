@@ -465,12 +465,12 @@ function EditableTable() {
           </div>
         <div className="column_dashboard">
         {t('dashboard.p18')}<br/>
-          <input type="number" id="sn_right_min" name="sn_right_min" min="0" placeholder="min" {...register("sn_right_min")}/>
-          <input type="number" id="sn_right_max" name="sn_right_max" min="0" placeholder="max"{...register("sn_right_max")}/>
+          <input type="number" step="any" id="sn_right_min" name="sn_right_min" min="0" placeholder="min" {...register("sn_right_min")}/>
+          <input type="number" step="any" id="sn_right_max" name="sn_right_max" min="0" placeholder="max"{...register("sn_right_max")}/>
           <br/><br/>
           {t('dashboard.p19')}<br/>
-          <input type="number" id="sn_left_min" name="sn_left_min" min="0" placeholder="min" {...register("sn_left_min")}/>
-          <input type="number" id="sn_left_max" name="sn_left_max" min="0" placeholder="max" {...register("sn_left_max")}/>
+          <input type="number" step="any" id="sn_left_min" name="sn_left_min" min="0" placeholder="min" {...register("sn_left_min")}/>
+          <input type="number" step="any" id="sn_left_max" name="sn_left_max" min="0" placeholder="max" {...register("sn_left_max")}/>
           </div>
           </div>
           
