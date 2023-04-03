@@ -54,7 +54,7 @@ function AddAnnotation() {
         sex: null,
         user_id: 1}); // TODO HARDCODED
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, setValue } = useForm();
 
     const changeHandler = (e, fnum) => {
         if (fnum === "image1" ) {
@@ -147,6 +147,19 @@ function AddAnnotation() {
         .then((res) => {
           setResponseAPI("Request was succefull.")
           alert("Request was succefull.");
+          setValue("image", "")
+          setValue("annotation", "")
+          setValue('title', '')
+          setValue('description', '')
+          setValue('user_id', '')
+          setValue('patient_id', '')
+          setValue("visit_date", '')
+          setValue("birth_date", "")
+          setValue("age_onset", "")
+          setValue("sex", "A")
+          setValue("sn_right", "")
+          setValue("sn_left", "")
+
         })
         .catch((err) => {
           setResponseAPI("Request ERROR.")
@@ -182,15 +195,15 @@ function AddAnnotation() {
                   <br/>
                   <input type="date" id="visit_date" name="visit_date" {...register("visit_date", { required: true })}/>
                   <br/>
-                  <input type="number" id="age_onset" name="age_onset" min="0" {...register("age_onset", { required: true })} placeholder={t('add_annotation.p8')}/>
+                  <input type="number" step="any" id="age_onset" name="age_onset" min="0" {...register("age_onset", { required: true })} placeholder={t('add_annotation.p8')}/>
                   <br/>
                   <label htmlFor="birth_date">{t('add_annotation.p9')}</label>
                   <br/>
                   <input type="date" id="birth_date" name="birth_date" {...register("birth_date", { required: true })} />
                   <br/>
-                  <input type="number" id="sn_right" name="sn_right" min="0" {...register("sn_right", { required: true })}placeholder={t('add_annotation.p10')}/>
+                  <input type="number" step="any" id="sn_right" name="sn_right" min="0" {...register("sn_right", { required: true })}placeholder={t('add_annotation.p10')}/>
                   <br/>
-                  <input type="number" id="sn_left" name="sn_left" min="0" {...register("sn_left", { required: true })} placeholder={t('add_annotation.p11')}/>
+                  <input type="number" step="any" id="sn_left" name="sn_left" min="0" {...register("sn_left", { required: true })} placeholder={t('add_annotation.p11')}/>
                   <br/>
                   <label htmlFor="sex">{t('add_annotation.p12')}</label>
                   <select id="sex" name="sex" {...register("sex", { required: true })}>
