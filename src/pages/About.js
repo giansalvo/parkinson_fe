@@ -30,9 +30,9 @@ img {
 }
 `
 
-function HomePage() {
+function About() {
 
-    console.log("HomePage")
+    console.log("About")
 
     const { t } = useTranslation();
 
@@ -59,4 +59,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default About;
