@@ -4,9 +4,9 @@ import "./HomePage.css"
 import {Header} from "../components/shared/Header/Header";
 import { Footer } from "../components/shared/Footer/Footer";
 
-function HomePage() {
+function NoPage() {
 
-  console.log("HomePage")
+  console.log("NoPage")
 
   return (
       <div className="main_container">
@@ -21,4 +21,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default NoPage;
