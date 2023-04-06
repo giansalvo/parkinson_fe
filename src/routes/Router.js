@@ -3,6 +3,7 @@ import { Route } from 'react-router'
 import HomePage from "../pages/HomePage";
 import Prediction from "../pages/Prediction";
 import SignIn from "../pages/SignIn"
+import SignUp from "../pages/SignUp";
 import Contact from "../pages/Contact"
 import About from "../pages/About"
 import Credits from "../pages/Credits"
@@ -24,6 +25,7 @@ const Router = () => {
                 <Route exact path="/prediction/" component={Prediction} />
                 <Route exact path="/HomePage/" component={HomePage} />
                 <Route exact path="/SignIn/" component={SignIn} />
+                <Route exact path="/SignUp/" component={SignUp} />
                 <Route exact path="/About/" component={About} />
                 <Route exact path="/Contact/" component={Contact} />
                 <Route exact path="/Credits/" component={Credits} />

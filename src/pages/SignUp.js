@@ -27,7 +27,7 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignIn() {
+export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -37,27 +37,25 @@ export default function SignIn() {
     });
 
   const formData = new FormData()
-  formData.append("client_id", "XYnOoW4ABtgxRBVLbHbwkfWHrrvjFN6TC8VnuCqe");
-  formData.append("grant_type", 'password');
-  formData.append("username", data.get('email'));
+  formData.append("first_name", data.get('first_name'));
+  formData.append("last_name", data.get('last_name'));
+  formData.append("email", data.get('email'));
   formData.append("password", data.get('password'));
 
   console.log("formData:", formData)
 
     axios
     .post(
-        "http://[::1]:8438/auth/token",
+        "http://[::1]:8438/auth/signup/",
         formData,
         {
             headers: {
                 "Content-type": "multipart/form-data",
             },
-            dataType: "json",
+            responseType: "arraybuffer", // TODO useless?
         }
     )
     .then((res) => {
-        console.log("res.data.access_token:" + res.data.access_token)
-        // get access_token
         alert("Request was succefull.");
     })
     .catch((err) => {
@@ -82,7 +80,7 @@ export default function SignIn() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Sign Up
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -105,6 +103,26 @@ export default function SignIn() {
               id="password"
               autoComplete="current-password"
             />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="first_name"
+              label="First Name"
+              name="first_name"
+              autoComplete="first-name"
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="last_name"
+              label="Last Name"
+              name="last_name"
+              autoComplete="last-name"
+              autoFocus
+            />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
@@ -115,17 +133,12 @@ export default function SignIn() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Sign Up
             </Button>
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
                   Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="./SignUp/" variant="body2">
-                  {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
             </Grid>
