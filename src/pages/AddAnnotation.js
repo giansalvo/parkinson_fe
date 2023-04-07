@@ -43,8 +43,7 @@ function AddAnnotation() {
     const [fields, setFields] = useState({
         image: null,
         annotation : null,
-        title: "",
-        description: "",
+        notes: "",
         patient_id: "",
         age_onset: "",
         sn_right: 0,
@@ -121,13 +120,13 @@ function AddAnnotation() {
         const formData = new FormData()
         formData.append("image_sample", data.image[0])
         formData.append("image_ground_truth", data.annotation[0])
-        formData.append("title", data.title);
-        formData.append("description", data.description);
+        formData.append("notes", data.notes);
         formData.append("patient_id", data.patient_id);
         formData.append("age_onset", data.age_onset);
         formData.append("sn_right", data.sn_right)
         formData.append("sn_left", data.sn_left)
         formData.append("sex", data.sex)
+        formData.append("visit_date", data.visit_date)
         formData.append("birth_date", data.birth_date)
         formData.append("user_id", data.user_id);
 
@@ -149,8 +148,7 @@ function AddAnnotation() {
           alert("Request was succefull.");
           setValue("image", "")
           setValue("annotation", "")
-          setValue('title', '')
-          setValue('description', '')
+          setValue('notes', '')
           setValue('user_id', '')
           setValue('patient_id', '')
           setValue("visit_date", '')
@@ -183,10 +181,6 @@ function AddAnnotation() {
                       accept='.png, .jpg, .jpeg'
                       onChange={(e)=>changeHandler(e, "image2")} />
                   <br/>
-                  <input type="text" {...register("title", { required: true })} placeholder={t('add_annotation.p3')} autoComplete="off"/>
-                  <br/>
-                  <input type="text" {...register("description", { required: true })} placeholder={t('add_annotation.p4')} autoComplete="off"/>
-                  <br/>
                   <input {...register("user_id", { required: true })} placeholder={t('add_annotation.p5')} autoComplete="off"/>
                   <br/>
                   <input type="text" {...register("patient_id", { required: true })} placeholder={t('add_annotation.p6')} autoComplete="off"/>
@@ -204,6 +198,8 @@ function AddAnnotation() {
                   <input type="number" step="any" id="sn_right" name="sn_right" min="0" {...register("sn_right", { required: true })}placeholder={t('add_annotation.p10')}/>
                   <br/>
                   <input type="number" step="any" id="sn_left" name="sn_left" min="0" {...register("sn_left", { required: true })} placeholder={t('add_annotation.p11')}/>
+                  <br/>
+                  <input type="text" {...register("notes", { required: false })} placeholder={t('add_annotation.p4')} autoComplete="off"/>
                   <br/>
                   <label htmlFor="sex">{t('add_annotation.p12')}</label>
                   <select id="sex" name="sex" {...register("sex", { required: true })}>

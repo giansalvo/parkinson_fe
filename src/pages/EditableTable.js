@@ -232,7 +232,10 @@ function EditableTable() {
     birth_from: "",
     birth_to: "",
     visit_from: "",
-    visit_to: ""});
+    visit_to: "",
+    age_onset_min: "",
+    age_onset_max: ""
+  });
 
   const { register, handleSubmit, formState: { errors }, setValue } = useForm();
 
@@ -244,14 +247,6 @@ function EditableTable() {
           {
             Header: t('dashboard.p1'),
             accessor: 'patient_id',
-          },
-          {
-            Header: t('dashboard.p2'),
-            accessor: 'title',
-          },
-          {
-            Header: t('dashboard.p3'),
-            accessor: 'description',
           },
           {
             Header: t('dashboard.p4'),
@@ -276,6 +271,10 @@ function EditableTable() {
           {
             Header: t('dashboard.p9'),
             accessor: 'sn_left',
+          },
+          {
+            Header: t('dashboard.p3'),
+            accessor: 'notes',
           },
           {
             Header: t('dashboard.p10'),
@@ -356,6 +355,20 @@ function EditableTable() {
         param = param + "birth_to=" + data.birth_to;
         started = true
       }
+      if (data.age_onset_min) {
+        if (started) {
+          param = param + "&"
+        }
+        param = param + "age_onset_min=" + data.age_onset_min;
+        started = true
+      }
+      if (data.age_onset_max) {
+        if (started) {
+          param = param + "&"
+        }
+        param = param + "age_onset_max=" + data.age_onset_max;
+        started = true
+      }
    
       if (param) {
         param = "?"+param
@@ -396,6 +409,8 @@ function EditableTable() {
     setValue('birth_to', '')
     setValue('visit_from', '')
     setValue('visit_to', '')
+    setValue('age_onset_min', '')
+    setValue('age_onset_max', '')
   }
 
   const [data, setData] = React.useState(null)
@@ -471,11 +486,15 @@ function EditableTable() {
           {t('dashboard.p19')}<br/>
           <input type="number" step="any" id="sn_left_min" name="sn_left_min" min="0" placeholder="min" {...register("sn_left_min")}/>
           <input type="number" step="any" id="sn_left_max" name="sn_left_max" min="0" placeholder="max" {...register("sn_left_max")}/>
+          <br/><br/>
+          {t('dashboard.p4')}<br/>
+          <input type="number" step="any" id="age_onset_min" name="age_onset_min" min="0" placeholder="min" {...register("age_onset_min")}/>
+          <input type="number" step="any" id="age_onset_max" name="age_onset_max" min="0" placeholder="max" {...register("age_onset_max")}/>
           </div>
           </div>
           
-          {errors.visit_from       && <span>This field is required</span>}
-          {errors.sn_left_min       && <span>This field is required</span>}
+          {/* {errors.visit_from       && <span>This field is required</span>}
+          {errors.sn_left_min       && <span>This field is required</span>} */}
 
           <input className="button3" type="submit"/>
           <input className="button3" type="reset" onClick={resetForm}/>

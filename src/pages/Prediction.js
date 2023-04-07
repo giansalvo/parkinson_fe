@@ -24,9 +24,7 @@ function Prediction() {
 
     const [fields, setFields] = useState({
         image: null,
-        ground_truth_TODO: null,
-        title: "",
-        description: "",
+        notes: "",
         patient_id: "",
         patient_age: "",
         user_id: 1});
@@ -69,11 +67,6 @@ function Prediction() {
 
         const formData = new FormData()
         formData.append("image", data.image[0])
-        formData.append("title", data.title);
-        formData.append("description", data.description);
-        formData.append("patient_id", data.patient_id);
-        formData.append("patient_age", data.patient_age);
-        formData.append("user_id", data.user_id);
 
         console.log("formData:", formData)
 

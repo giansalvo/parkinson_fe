@@ -61,8 +61,8 @@ i18n
             },
             dashboard: {
                 p1: "Patient ID",
-                p2: "Title",
-                p3: "Description",
+                // p2: "Title",
+                p3: "Notes",
                 p4: "Age onset",
                 p5: "Sex",
                 p6: "Birth Date",
@@ -94,8 +94,8 @@ i18n
             add_annotation: {
                 p1: "Midbrain Untraced Image ",
                 p2: "Traced Image ",
-                p3: "Title",
-                p4: "Description",
+                // p3: "Title",
+                p4: "Notes",
                 p5: "User ID",
                 p6: "Patient ID",
                 p7: "Visit Date",
@@ -162,8 +162,8 @@ i18n
                 },  
                 dashboard: {
                     p1: "ID Paziente",
-                    p2: "Titolo",
-                    p3: "Descrizione",
+                    // p2: "Titolo",
+                    p3: "Note",
                     p4: "Età onset",
                     p5: "Sesso",
                     p6: "Data nascita",
@@ -195,8 +195,8 @@ i18n
                 add_annotation: {
                     p1: "Immagine del mesencefalo",
                     p2: "Immagine con traccia ",
-                    p3: "Titolo",
-                    p4: "Descrizione",
+                    // p3: "Titolo",
+                    p4: "Note",
                     p5: "ID utente",
                     p6: "ID paziente",
                     p7: "Data visita",

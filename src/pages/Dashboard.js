@@ -184,14 +184,13 @@ function Dashboard() {
             <tr>
               <th>id</th>
               <th>patient_id</th>
-              <th>title</th>
-              <th>description</th>
               <th>age</th>  
               <th>Sex</th>  
               <th>Date of Birth</th> 
               <th>Date of Visit</th> 
               <th>SN right</th>
               <th>SN left</th>
+              <th>Notes</th>
               <th>User Name</th>
             </tr>
             </thead>
@@ -204,12 +203,6 @@ function Dashboard() {
 
                 <td>
                   {record.patient_id}
-                </td>
-                <td>
-                    {record.title}
-                </td>
-                <td>
-                    {record.description}
                 </td>
                 <td>
                     {record.patient_age}
@@ -228,6 +221,9 @@ function Dashboard() {
                 </td>
                 <td>
                     {record.sn_left}
+                </td>
+                <td>
+                    {record.notes}
                 </td>
                 <td>
                     TODO
