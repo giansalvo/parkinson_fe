@@ -1,15 +1,18 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Redirect } from 'react-router-dom';
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import styled from 'styled-components'
 import { useTranslation} from 'react-i18next';
+import { useHistory } from "react-router-dom";
 
 import "./Prediction.css"
 import {Header} from "../components/shared/Header/Header";
 
 import image_placeholder from "../images/image_placeholder.png"
 import { Footer } from "../components/shared/Footer/Footer";
+import SignIn from "./SignIn"
 
 const imageMimeType = /image\/(png|jpg|jpeg)/i;
 const Styles = styled.div`
@@ -39,6 +42,13 @@ function AddAnnotation() {
     const [fileDataURL, setFileDataURL] = useState(null);
     const [fileDataURL2, setFileDataURL2] = useState(null);
     const [responseAPI, setResponseAPI] = useState(null);
+    
+    const [isLoggedIn, setIsLoggedIn] = useState(() => {
+      // getting stored value
+      const saved = localStorage.getItem("logged_in");
+      const value = JSON.parse(saved);
+      return Boolean(value) || false;
+    });
 
     const [fields, setFields] = useState({
         image: null,
@@ -110,10 +120,7 @@ function AddAnnotation() {
     
   }, [file, file2]);
     
-
-
-
-    function onSubmit (data) {
+  function onSubmit (data) {
         console.log("Data:", data)
         console.log("Data.image[0]:", data.image[0])
 
@@ -167,6 +174,10 @@ function AddAnnotation() {
     };
 
     return (
+      <>
+      {!isLoggedIn ? 
+            <Redirect to="SignIn"/> 
+      :
       <div>
         <Header/>
         <div className="row">
@@ -241,6 +252,8 @@ function AddAnnotation() {
         }
         <Footer/>
     </div>
+    }
+    </>
   );
 }
 

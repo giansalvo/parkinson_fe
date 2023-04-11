@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { useState, useEffect } from "react";
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -14,6 +16,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import HomePage from "./HomePage"
+
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -28,6 +32,20 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
+
+  const [isError, setIsError] = useState(false);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    // getting stored value
+    const saved = localStorage.getItem("logged_in");
+    const initialValue = JSON.parse(saved);
+    return (initialValue==true) || false;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("logged_in", JSON.stringify(isLoggedIn))
+  }, [isLoggedIn]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -56,17 +74,26 @@ export default function SignIn() {
         }
     )
     .then((res) => {
+      if (res.status === 200) {
+        setIsLoggedIn(true);
         console.log("res.data.access_token:" + res.data.access_token)
-        // get access_token
-        alert("Request was succefull.");
+      }else {
+        setIsError(true);
+        setIsLoggedIn(false);
+      }
     })
     .catch((err) => {
-        alert("Request ERROR.");
+        setIsError(true);
         console.log("Error: " + err);
+        setIsLoggedIn(false);
     })
     };
-
+   
   return (
+    <>
+    { isLoggedIn ?
+      <Redirect to={HomePage} />
+    :
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -131,8 +158,11 @@ export default function SignIn() {
             </Grid>
           </Box>
         </Box>
+        { isError&& <div>The username or password provider were incorrect.</div>}
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
+    }
+    </>
   );
 }

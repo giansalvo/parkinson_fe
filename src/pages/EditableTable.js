@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import { useForm } from "react-hook-form";
 import styled from 'styled-components'
 import { useTable, usePagination } from 'react-table'
@@ -222,6 +223,13 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
 function EditableTable() {
 
   const { t } = useTranslation();
+
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    // getting stored value
+    const saved = localStorage.getItem("logged_in");
+    const value = JSON.parse(saved);
+    return Boolean(value) || false;
+  });
 
   const [fields, setFields] = useState({
     sex: "",
@@ -451,65 +459,70 @@ function EditableTable() {
   const resetData = () => setData(originalData)
 
   return (
-    <div className="main_container">
-      <Header/>
-      <Styles>
-        <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="row_dashboard">
-        <div className="column_dashboard">
-        {t('dashboard.p11')}
-          <br/>
-          <label htmlFor="visit_from">{t('dashboard.p12')}</label>
-          <input type="date" id="visit_from" name="visit_from" {...register("visit_from")}/>
-          <label htmlFor="visit_to">{t('dashboard.p13')}</label>
-          <input type="date" id="visit_to" name="visit_to" {...register("visit_to")}/>
-          <br/><br/>
-          {t('dashboard.p14')}
-          <br/>
-          <label htmlFor="birth_from">{t('dashboard.p15')}</label>
-          <input type="date" id="birth_from" name="birth_from" {...register("birth_from")}/>
-          <label htmlFor="birth_to">{t('dashboard.p16')}</label>
-          <input type="date" id="birth_to" name="birth_to" {...register("birth_to")}
-          /><br/><br/>
-          <label htmlFor="sex">{t('dashboard.p17')}</label>
-          <select name="sex" id="sex" {...register("sex")}>
-            <option value='A'>{t('dashboard.p20')}</option>
-            <option value='M'>{t('dashboard.p21')}</option>
-            <option value='F'>{t('dashboard.p22')}</option>
-          </select><br/><br/>
-          </div>
-        <div className="column_dashboard">
-        {t('dashboard.p18')}<br/>
-          <input type="number" step="any" id="sn_right_min" name="sn_right_min" min="0" placeholder="min" {...register("sn_right_min")}/>
-          <input type="number" step="any" id="sn_right_max" name="sn_right_max" min="0" placeholder="max"{...register("sn_right_max")}/>
-          <br/><br/>
-          {t('dashboard.p19')}<br/>
-          <input type="number" step="any" id="sn_left_min" name="sn_left_min" min="0" placeholder="min" {...register("sn_left_min")}/>
-          <input type="number" step="any" id="sn_left_max" name="sn_left_max" min="0" placeholder="max" {...register("sn_left_max")}/>
-          <br/><br/>
-          {t('dashboard.p4')}<br/>
-          <input type="number" step="any" id="age_onset_min" name="age_onset_min" min="0" placeholder="min" {...register("age_onset_min")}/>
-          <input type="number" step="any" id="age_onset_max" name="age_onset_max" min="0" placeholder="max" {...register("age_onset_max")}/>
-          </div>
-          </div>
-          
-          {/* {errors.visit_from       && <span>This field is required</span>}
-          {errors.sn_left_min       && <span>This field is required</span>} */}
+    <> {!isLoggedIn ? 
+      <Redirect to="SignIn"/> 
+      :
+      <div className="main_container">
+        <Header/>
+        <Styles>
+          <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="row_dashboard">
+          <div className="column_dashboard">
+          {t('dashboard.p11')}
+            <br/>
+            <label htmlFor="visit_from">{t('dashboard.p12')}</label>
+            <input type="date" id="visit_from" name="visit_from" {...register("visit_from")}/>
+            <label htmlFor="visit_to">{t('dashboard.p13')}</label>
+            <input type="date" id="visit_to" name="visit_to" {...register("visit_to")}/>
+            <br/><br/>
+            {t('dashboard.p14')}
+            <br/>
+            <label htmlFor="birth_from">{t('dashboard.p15')}</label>
+            <input type="date" id="birth_from" name="birth_from" {...register("birth_from")}/>
+            <label htmlFor="birth_to">{t('dashboard.p16')}</label>
+            <input type="date" id="birth_to" name="birth_to" {...register("birth_to")}
+            /><br/><br/>
+            <label htmlFor="sex">{t('dashboard.p17')}</label>
+            <select name="sex" id="sex" {...register("sex")}>
+              <option value='A'>{t('dashboard.p20')}</option>
+              <option value='M'>{t('dashboard.p21')}</option>
+              <option value='F'>{t('dashboard.p22')}</option>
+            </select><br/><br/>
+            </div>
+          <div className="column_dashboard">
+          {t('dashboard.p18')}<br/>
+            <input type="number" step="any" id="sn_right_min" name="sn_right_min" min="0" placeholder="min" {...register("sn_right_min")}/>
+            <input type="number" step="any" id="sn_right_max" name="sn_right_max" min="0" placeholder="max"{...register("sn_right_max")}/>
+            <br/><br/>
+            {t('dashboard.p19')}<br/>
+            <input type="number" step="any" id="sn_left_min" name="sn_left_min" min="0" placeholder="min" {...register("sn_left_min")}/>
+            <input type="number" step="any" id="sn_left_max" name="sn_left_max" min="0" placeholder="max" {...register("sn_left_max")}/>
+            <br/><br/>
+            {t('dashboard.p4')}<br/>
+            <input type="number" step="any" id="age_onset_min" name="age_onset_min" min="0" placeholder="min" {...register("age_onset_min")}/>
+            <input type="number" step="any" id="age_onset_max" name="age_onset_max" min="0" placeholder="max" {...register("age_onset_max")}/>
+            </div>
+            </div>
+            
+            {/* {errors.visit_from       && <span>This field is required</span>}
+            {errors.sn_left_min       && <span>This field is required</span>} */}
 
-          <input className="button3" type="submit"/>
-          <input className="button3" type="reset" onClick={resetForm}/>
-          
-        </form>
-        {/* <button className="button3" onClick={resetData}>{t('dashboard.p23')}</button> */}
-        {data && (<Table
-          columns={columns}
-          data={data}
-          updateMyData={updateMyData}
-          skipPageReset={skipPageReset}
-        />)}
-      </Styles>
-      <Footer/>
-    </div>
+            <input className="button3" type="submit"/>
+            <input className="button3" type="reset" onClick={resetForm}/>
+            
+          </form>
+          {/* <button className="button3" onClick={resetData}>{t('dashboard.p23')}</button> */}
+          {data && (<Table
+            columns={columns}
+            data={data}
+            updateMyData={updateMyData}
+            skipPageReset={skipPageReset}
+          />)}
+        </Styles>
+        <Footer/>
+      </div>
+    }
+    </>
   )
 }
 

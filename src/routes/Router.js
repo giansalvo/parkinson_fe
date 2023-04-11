@@ -13,6 +13,7 @@ import Dashboard from "../pages/Dashboard"
 import Prediction2 from "../pages/Prediction2";
 import ExportData from "../pages/ExportData";
 import EditableTable from "../pages/EditableTable";
+import SignOut from "../pages/SignOut";
 
 const Router = () => {
 
@@ -21,6 +22,7 @@ const Router = () => {
     return (
         <BrowserRouter>
             <Switch>
+                <Route exact path="/SignOut" component={SignOut} />
                 <Route exact path="/prediction2/" component={Prediction2} />
                 <Route exact path="/prediction/" component={Prediction} />
                 <Route exact path="/HomePage/" component={HomePage} />

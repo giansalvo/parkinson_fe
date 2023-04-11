@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from 'react'
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import axios from 'axios'
 import { useTranslation} from 'react-i18next';
 import {ExportToExcel} from './ExportToExcel'
@@ -13,8 +14,16 @@ function ExportData() {
   console.log("ExportData")
 
   const { t } = useTranslation();
+
   const [data, setData] = React.useState([])
   const fileName = "dataset_sn_ai"; // here enter filename for your excel file
+
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    // getting stored value
+    const saved = localStorage.getItem("logged_in");
+    const value = JSON.parse(saved);
+    return Boolean(value) || false;
+  });
 
   React.useEffect(() => {
     const fetchData = () =>{
@@ -33,6 +42,9 @@ function ExportData() {
   }, [])
 
   return (
+    <> {!isLoggedIn ? 
+      <Redirect to="SignIn"/> 
+      :
         <div className="main_container">
             <Header/>
             <div className="message">
@@ -48,6 +60,8 @@ function ExportData() {
             </div>
             <Footer/>
         </div>
+      }
+    </>
   );
 }
 
