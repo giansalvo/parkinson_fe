@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { useTable, usePagination } from 'react-table'
 import axios from "axios"
 import { useTranslation} from 'react-i18next';
-
+import {GetItem} from "../utils";
 import { Header } from "../components/shared/Header/Header";
 import { Footer } from "../components/shared/Footer/Footer";
 
@@ -224,12 +224,7 @@ function EditableTable() {
 
   const { t } = useTranslation();
 
-  const [isLoggedIn, setIsLoggedIn] = useState(() => {
-    // getting stored value
-    const saved = localStorage.getItem("logged_in");
-    const value = JSON.parse(saved);
-    return Boolean(value) || false;
-  });
+  const isLoggedIn = Boolean(GetItem("logged_in"))
 
   const [fields, setFields] = useState({
     sex: "",

@@ -13,6 +13,7 @@ import {Header} from "../components/shared/Header/Header";
 import image_placeholder from "../images/image_placeholder.png"
 import { Footer } from "../components/shared/Footer/Footer";
 import SignIn from "./SignIn"
+import {GetItem} from "../utils";
 
 const imageMimeType = /image\/(png|jpg|jpeg)/i;
 const Styles = styled.div`
@@ -43,12 +44,7 @@ function AddAnnotation() {
     const [fileDataURL2, setFileDataURL2] = useState(null);
     const [responseAPI, setResponseAPI] = useState(null);
     
-    const [isLoggedIn, setIsLoggedIn] = useState(() => {
-      // getting stored value
-      const saved = localStorage.getItem("logged_in");
-      const value = JSON.parse(saved);
-      return Boolean(value) || false;
-    });
+    const isLoggedIn = Boolean(GetItem("logged_in"))
 
     const [fields, setFields] = useState({
         image: null,
