@@ -34,6 +34,7 @@ const theme = createTheme();
 export default function SignIn() {
 
   const [isError, setIsError] = useState(false);
+  const [username, setUsername] = useState("");
 
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     // getting stored value
@@ -44,11 +45,14 @@ export default function SignIn() {
 
   useEffect(() => {
     localStorage.setItem("logged_in", JSON.stringify(isLoggedIn))
+    localStorage.setItem("username", JSON.stringify(username))
   }, [isLoggedIn]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    localStorage.setItem("username", JSON.stringify(data.get('email')))
+    localStorage.setItem("password", JSON.stringify(data.get('password')))
     console.log({
       email: data.get('email'),
       password: data.get('password'),
@@ -76,6 +80,7 @@ export default function SignIn() {
     .then((res) => {
       if (res.status === 200) {
         setIsLoggedIn(true);
+        console.log("res.data: " + res.data)
         console.log("res.data.access_token:" + res.data.access_token)
       }else {
         setIsError(true);
@@ -92,7 +97,7 @@ export default function SignIn() {
   return (
     <>
     { isLoggedIn ?
-      <Redirect to={HomePage} />
+      <Redirect to={{HomePage}} />
     :
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -158,7 +163,7 @@ export default function SignIn() {
             </Grid>
           </Box>
         </Box>
-        { isError&& <div>The username or password provider were incorrect.</div>}
+        { isError&& <div>The username or password provided were incorrect.</div>}
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
