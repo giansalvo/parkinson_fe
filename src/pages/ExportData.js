@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import axios from 'axios'
 import { useTranslation} from 'react-i18next';
 import {ExportToExcel} from './ExportToExcel'
-import {GetItem} from "../utils";
+import {GetItem} from "../utils/storage";
 import "./HomePage.css"
 import {Header} from "../components/shared/Header/Header";
 import { Footer } from "../components/shared/Footer/Footer";

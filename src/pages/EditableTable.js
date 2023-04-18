@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { useTable, usePagination } from 'react-table'
 import axios from "axios"
 import { useTranslation} from 'react-i18next';
-import {GetItem} from "../utils";
+import {GetItem} from "../utils/storage";
 import { Header } from "../components/shared/Header/Header";
 import { Footer } from "../components/shared/Footer/Footer";
 

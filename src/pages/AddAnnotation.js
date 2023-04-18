@@ -13,7 +13,7 @@ import {Header} from "../components/shared/Header/Header";
 import image_placeholder from "../images/image_placeholder.png"
 import { Footer } from "../components/shared/Footer/Footer";
 import SignIn from "./SignIn"
-import {GetItem} from "../utils";
+import {GetItem} from "../utils/storage";
 
 const imageMimeType = /image\/(png|jpg|jpeg)/i;
 const Styles = styled.div`

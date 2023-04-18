@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from "react";
 import { useTranslation} from 'react-i18next';
 import i18n from "../../../i18n"
-import {GetItem} from "../../../utils";
+import {GetItem} from "../../../utils/storage";
 import "./Header.css";
 import { SignOut } from "../../../pages/SignOut";
 
