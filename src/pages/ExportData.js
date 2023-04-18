@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
-import axios from 'axios'
+import request from "../utils/request"
 import { useTranslation} from 'react-i18next';
 import {ExportToExcel} from './ExportToExcel'
 import {GetItem} from "../utils/storage";
@@ -8,6 +8,15 @@ import "./HomePage.css"
 import {Header} from "../components/shared/Header/Header";
 import { Footer } from "../components/shared/Footer/Footer";
 
+export const getDataCvsAPI = (url_param) => {
+  return request(
+    {
+      url: url_param,
+      method: 'GET',
+    },
+    true,
+  );
+}
 
 function ExportData() {
 
@@ -19,20 +28,17 @@ function ExportData() {
   const fileName = "dataset_sn_ai"; // here enter filename for your excel file
 
   const isLoggedIn = Boolean(GetItem("logged_in"))
+  const url = "http://[::1]:8438/prediction/do-dashboard/"
 
   React.useEffect(() => {
     const fetchData = () =>{
-    axios.get("http://[::1]:8438/prediction/do-dashboard/")
-    .then((res) => {
-        const obj = res.data.predictions;
-        setData(obj);
-        // alert("Data exported correctly.")
-     })
-     .catch((err) => {
-        alert("Error during request.")      
-        console.log("Error: " + err);
-    })
-    }
+      getDataCvsAPI(url).then(
+        result => {
+          const obj = result.data.predictions;
+          setData(obj);
+        }
+      )
+     }
     fetchData()
   }, [])
 

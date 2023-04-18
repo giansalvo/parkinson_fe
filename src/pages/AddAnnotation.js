@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Redirect } from 'react-router-dom';
-import axios from "axios";
+import request from "../utils/request";
 import { useForm } from "react-hook-form";
 import styled from 'styled-components'
 import { useTranslation} from 'react-i18next';
-import { useHistory } from "react-router-dom";
+
 
 import "./Prediction.css"
 import {Header} from "../components/shared/Header/Header";
@@ -32,6 +32,20 @@ const Styles = styled.div`
     height: 2.25rem;
   }
 `
+
+export const postAnnotationAPI = (url_param, formData) => {
+  return request(
+    {
+      data: formData,
+      url: url_param,
+      method: 'POST',
+      responseType: "arraybuffer",
+    },
+    false,
+    true
+  );
+}
+
 function AddAnnotation() {
 
     console.log("AddAnnotation")
@@ -135,38 +149,25 @@ function AddAnnotation() {
 
         console.log("formData:", formData)
 
-        axios
-        .post(
-            "http://[::1]:8438/prediction/do-ground-truth/",
-            formData,
-            {
-                headers: {
-                    "Content-type": "multipart/form-data",
-                },
-                responseType: "arraybuffer", // TODO useless?
+        const url = "http://[::1]:8438/prediction/do-ground-truth/"
+        postAnnotationAPI(url, formData).then ( result => {
+            setResponseAPI("Request was succefull.");
+            alert("Request was succefull.");
+            setValue("image", "");
+            setValue("annotation", "");
+            setValue('notes', '');
+            setValue('user_id', '');
+            setValue('patient_id', '');
+            setValue("visit_date", '');
+            setValue("birth_date", "");
+            setValue("age_onset", "");
+            setValue("sex", "A");
+            setValue("sn_right", "");
+            setValue("sn_left", "");
             }
+        ) .catch (error => 
+          console.log("error: ", error)
         )
-        .then((res) => {
-          setResponseAPI("Request was succefull.")
-          alert("Request was succefull.");
-          setValue("image", "")
-          setValue("annotation", "")
-          setValue('notes', '')
-          setValue('user_id', '')
-          setValue('patient_id', '')
-          setValue("visit_date", '')
-          setValue("birth_date", "")
-          setValue("age_onset", "")
-          setValue("sex", "A")
-          setValue("sn_right", "")
-          setValue("sn_left", "")
-
-        })
-        .catch((err) => {
-          setResponseAPI("Request ERROR.")
-          alert("Request ERROR.");
-            console.log("Error: " + err);
-        })
     };
 
     return (

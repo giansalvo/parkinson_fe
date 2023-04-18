@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useTranslation} from 'react-i18next';
+import request from "../utils/request"
 
 import "./Prediction.css"
 import {Header} from "../components/shared/Header/Header";
@@ -12,24 +12,31 @@ import { Footer } from "../components/shared/Footer/Footer";
 
 const imageMimeType = /image\/(png|jpg|jpeg)/i;
 
+export const postPredictionAPI = (url_param, formData) => {
+  return request(
+    {
+      method: 'POST',
+      url: url_param,
+      data: formData,
+      responseType: "arraybuffer",
+    },
+    false,
+    true
+  );
+  
+}
+
 function Prediction() {
 
   console.log("Prediction")
 
-    const { t } = useTranslation();
+  const { t } = useTranslation();
 
-    const [file, setFile] = useState(null);
-    const [fileDataURL, setFileDataURL] = useState(null);
-    const [prediction, setPrediction] = useState(null);
+  const [file, setFile] = useState(null);
+  const [fileDataURL, setFileDataURL] = useState(null);
+  const [prediction, setPrediction] = useState(null);
 
-    const [fields, setFields] = useState({
-        image: null,
-        notes: "",
-        patient_id: "",
-        patient_age: "",
-        user_id: 1});
-
-    const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
     const changeHandler = (e) => {
         const file = e.target.files[0];
@@ -70,29 +77,19 @@ function Prediction() {
 
         console.log("formData:", formData)
 
-        axios
-        .post(
-            "http://[::1]:8438/prediction/do-prediction/",
-            formData,
-            {
-                headers: {
-                    "Content-type": "multipart/form-data",
-                },
-                responseType: "arraybuffer",
-            }
-        )
-        .then((res) => {
-            // console.log("The request was successfull");
-            // console.log(res.data)
-            
-            var bytes = new Uint8Array(res.data);
+        const url_param = "http://[::1]:8438/prediction/do-prediction/"
+        postPredictionAPI(url_param, formData).then(
+          result =>  {
+            // console.log("result.data ", result.data)
+            var bytes = new Uint8Array(result.data);
             const blob = new Blob( [ bytes ] );
             const url = URL.createObjectURL( blob );
             setPrediction(url);
-        })
-        .catch((err) => {
-            console.log("Error: " + err);
-        })
+            console.log("prediction url", prediction)
+          }
+        ) .catch (error => 
+          console.log("error: ", error)
+        )
     };
 
     return (

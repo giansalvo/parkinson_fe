@@ -3,11 +3,11 @@ import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import { useForm } from "react-hook-form";
 import styled from 'styled-components'
 import { useTable, usePagination } from 'react-table'
-import axios from "axios"
 import { useTranslation} from 'react-i18next';
 import {GetItem} from "../utils/storage";
 import { Header } from "../components/shared/Header/Header";
 import { Footer } from "../components/shared/Footer/Footer";
+import request from "../utils/request";
 
 import "./Dashboard.css"
 
@@ -220,6 +220,16 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
   )
 }
 
+export const getUsersAPI = (url_param) => {
+  return request(
+    {
+      url: url_param,
+      method: 'GET',
+    },
+    true,
+  );
+}
+
 function EditableTable() {
 
   const { t } = useTranslation();
@@ -381,24 +391,9 @@ function EditableTable() {
       const url = "http://[::1]:8438/prediction/do-dashboard/" + param
       console.log(url)
 
-    axios
-    .get(url,
-        "",
-        {
-            headers: {
-                "Content-type": "multipart/form-data",
-            },
-
-            responseType: "application/JSON", // TODO verify thiss
-        }
-    )
-    .then((res) => {
-        setData(res.data.predictions);
-    })
-    .catch((err) => {
-        alert("Error during request.")      
-        console.log("Error: " + err);
-    })
+      getUsersAPI(url).then(
+        result => setData(result.data.predictions)
+      )
   }
 
   function resetForm(){

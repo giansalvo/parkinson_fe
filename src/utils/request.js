@@ -12,8 +12,8 @@ const request = async (options, isAuthenticated = true, isMultipartFormData = fa
     header['Authorization'] = `Bearer ${token}`
   }
 
-  // log.debug('header: ', header)
-  // log.info('options: ', options)
+  // console.log('header: ', header)
+  // console.log('options: ', options)
   const client = axios.create({
     baseURL: process.env.REACT_APP_BASE_URL,
     headers: header,
