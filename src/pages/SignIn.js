@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from "react";
 import { Redirect } from 'react-router-dom';
-import axios from 'axios';
+import request from "../utils/request";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,6 +15,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {GetItem} from "../utils/storage";
 
 import HomePage from "./HomePage"
 
@@ -31,6 +32,18 @@ function Copyright(props) {
 
 const theme = createTheme();
 
+export const postSignInAPI = (url_param, formData) => {
+  return request(
+    {
+      data: formData,
+      url: url_param,
+      method: 'POST',
+    },
+    false,
+    false
+  );
+}
+
 export default function SignIn() {
 
   const [isError, setIsError] = useState(false);
@@ -38,9 +51,7 @@ export default function SignIn() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     // getting stored value
-    const saved = localStorage.getItem("logged_in");
-    const initialValue = JSON.parse(saved);
-    return (initialValue==true) || false;
+    return GetItem("logged_in");
   });
 
   useEffect(() => {
@@ -52,10 +63,9 @@ export default function SignIn() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     localStorage.setItem("username", JSON.stringify(data.get('email')))
-    localStorage.setItem("password", JSON.stringify(data.get('password')))
     console.log({
       email: data.get('email'),
-      password: data.get('password'),
+      password: data.get('password'), // TODO REMOVE THIS
     });
 
   const formData = new FormData()
@@ -66,33 +76,26 @@ export default function SignIn() {
 
   console.log("formData:", formData)
 
-    axios
-    .post(
-        "http://[::1]:8438/auth/token",
-        formData,
-        {
-            headers: {
-                "Content-type": "multipart/form-data",
-            },
-            dataType: "json",
-        }
-    )
-    .then((res) => {
+  const url_param = "http://[::1]:8438/auth/token"
+  postSignInAPI(url_param, formData)
+  .then((res) => {
       if (res.status === 200) {
         setIsLoggedIn(true);
-        console.log("res.data: " + res.data)
         console.log("res.data.access_token:" + res.data.access_token)
+        localStorage.setItem('auth_token', JSON.stringify(res.data.access_token))
+        // localStorage.setItem("logged_in", JSON.stringify(isLoggedIn))
       }else {
         setIsError(true);
         setIsLoggedIn(false);
       }
+
     })
     .catch((err) => {
-        setIsError(true);
-        console.log("Error: " + err);
-        setIsLoggedIn(false);
+          setIsError(true);
+          console.log("Error: " + err);
+          setIsLoggedIn(false);
     })
-    };
+  };
    
   return (
     <>
