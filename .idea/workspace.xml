@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6e7cf4c5-1fc1-4b55-ba11-2511357b8c33" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/Footer/Footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/Footer/Footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/Footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/Footer/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/Header/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/Header/Header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/Header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cropImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cropImage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/i18n.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/i18n.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/About.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddAnnotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddAnnotation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Contact.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Contact.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Credits.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Credits.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/EditableTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/EditableTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ExportData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ExportData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ExportToExcel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ExportToExcel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/HomePage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/NoPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/NoPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Prediction.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Prediction.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Prediction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Prediction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Prediction2.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Prediction2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Prediction2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Prediction2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignIn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignOut.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignOut.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/cropImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/cropImage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/makeData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/makeData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/storage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/storage.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2N8QBToOzimWLv1JNJIU0IrLrJC" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "//wsl$/Ubuntu-22.04/home/gians/webstuff/parkinson_fe",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6e7cf4c5-1fc1-4b55-ba11-2511357b8c33" name="Changes" comment="" />
+      <created>1679043093716</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679043093716</updated>
+      <workItem from="1682512161273" duration="68000" />
+      <workItem from="1682512606932" duration="309000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

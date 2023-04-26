@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-
+import FileSaver from 'file-saver';
 import {Header} from "../components/shared/Header/Header";
 import image_placeholder from "../images/image_placeholder.png"
 import { Footer } from "../components/shared/Footer/Footer";
@@ -160,9 +160,9 @@ const ItemPreviewWithCrop = withRequestPreSendUpdate((props) => {
 });
 
 
-function Prediction() {
+function Prediction2() {
 
-  console.log("Prediction")
+  console.log("Prediction2")
   const [prediction, setPrediction] = useState(null);
   const previewMethodsRef = useRef();
 
@@ -171,15 +171,23 @@ function Prediction() {
     
   const PredictedImage = () => {
       useItemFinishListener((item) => {
-        console.log("giansalvo here!!")
-          console.log(`item ${item.id} finished uploading, response was: `, item.uploadResponse.data, item.uploadStatus);
+          console.log("PredictedImage")
+          //console.log(`item ${item.id} finished uploading, response was: `, item.uploadResponse.data, item.uploadStatus);
           
+          console.log("response: " + item.uploadResponse)
+
           var bytes = new Uint8Array(item.uploadResponse.data);
           const blob = new Blob( [bytes] );
           const url = URL.createObjectURL( blob );
           console.log("URL: " + url)
           setPrediction(url);
 
+          // FileSaver.saveAs(bytes, "./image.jpg")
+          // FileSaver.saveAs(item.uploadResponse.data, "./IMAGE1.JPG")
+          // FileSaver.saveAs(bytes, "./IMAGE2.JPG")
+          // FileSaver.saveAs(Prediction, "./IMAGE3.JPG")
+          // FileSaver.saveAs(blob, "./IMAGE4.JPG")
+          
           // const imageObjectURL = URL.createObjectURL(blob);
           // setPrediction(imageObjectURL);
 
@@ -207,55 +215,55 @@ function Prediction() {
   const [fields, setFields] = useState({
         image: null,
         ground_truth_TODO: null,
-        title: "",
-        description: "",
+        notes: "",
         patient_id: "",
         patient_age: "",
         user_id: 1});
 
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-    // var FileSaver = require('file-saver');
+  // var FileSaver = require('file-saver');
 
-  const changeHandler = (e) => {
-        const file = e.target.files[0];
-        if (!file.type.match(imageMimeType)) {
-          alert("Image mime type is not valid");
-          return;
+  // const changeHandler = (e) => {
+  //       const file = e.target.files[0];
+  //       if (!file.type.match(imageMimeType)) {
+  //         alert("Image mime type is not valid");
+  //         return;
+  //       }
+  //       setFile(file);
+  //     }
+  useEffect(() => {
+    let fileReader, isCancel = false;
+    if (file) {
+      fileReader = new FileReader();
+      fileReader.onload = (e) => {
+        const { result } = e.target;
+        if (result && !isCancel) {
+          setFileDataURL(result)
         }
-        setFile(file);
       }
-      useEffect(() => {
-        let fileReader, isCancel = false;
-        if (file) {
-          fileReader = new FileReader();
-          fileReader.onload = (e) => {
-            const { result } = e.target;
-            if (result && !isCancel) {
-              setFileDataURL(result)
-            }
-          }
-          fileReader.readAsDataURL(file);
-        }
-        return () => {
-          isCancel = true;
-          if (fileReader && fileReader.readyState === 1) {
-            fileReader.abort();
-          }
-        }
+      fileReader.readAsDataURL(file);
+    }
+    return () => {
+      isCancel = true;
+      if (fileReader && fileReader.readyState === 1) {
+        fileReader.abort();
+      }
+    }
+
+  }, [file]);
     
-      }, [file]);
-    
-    return (
-      <div className="main_container">
-        <Header/>
+  return (
+    <div className="main_container">
+      <Header/>
         <div className="row">
           <Uploady
             multiple={false}
             destination={{ url: "http://[::1]:8438/prediction/do-prediction/" }}
             // inputFieldContainer = "img-preview-wrapper"
+            // method="GET"
             inputFieldName = "image"
-            //formatServerResponseMethod = "blob"
+            formatServerResponseMethod = "image/jpeg"
           >
         <div>
           <UploadButton>Select File to upload</UploadButton>
@@ -270,11 +278,11 @@ function Prediction() {
         <div className="column_images">
           <PredictedImage/>
         </div>
-       </Uploady>
-      </div>
-      <Footer/>
+      </Uploady>
+    </div>
+    <Footer/>
     </div>
   );
 }
 
-export default Prediction;
+export default Prediction2;
