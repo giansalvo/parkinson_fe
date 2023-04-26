@@ -41,7 +41,7 @@ export const postAnnotationAPI = (url_param, formData) => {
       method: 'POST',
       responseType: "arraybuffer",
     },
-    false,
+    true,
     true
   );
 }
