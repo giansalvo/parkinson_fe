@@ -77,7 +77,7 @@ function HomePage() {
         </div>
         <div className="message">
           {t('welcome_message.p1')}<Link to="/Prediction">{t('welcome_message.p2')}</Link>
-          {t('welcome_message.p3')}<Link to="/SignIn">{t('welcome_message.p4')}</Link>
+          {t('welcome_message.p3')}<Link to="/SignUp">{t('welcome_message.p4')}</Link>
           {t('welcome_message.p5')}
             {/* Welcome! This website uses a Neural Network Artificial Intelligence to identify and highlight the Substantia Nigra found in Parkinson's patients.
             You can either <Link to="/Prediction">give it a try</Link> or <Link to="/SignIn">register</Link> to participate to the project and send new images. 
