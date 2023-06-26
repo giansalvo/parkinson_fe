@@ -85,8 +85,8 @@ i18n
                 p23: "Reset Table",            
             },
             prediction: {
-                p1: "Choose an image of the midbrain and send it tu the server. ",
-                p2: "The artificial intelligence softare will give back an image where the Substantia Nigra is highlited in red. ",
+                p1: "Choose an image of the midbrain and send it to the server. ",
+                p2: "The artificial intelligence software will give back an image where the Substantia Nigra is highlighted in red. ",
                 p3: "Midbrain image ",
                 p4: "Substantia Nigra (in red)",
                 p5: "Image:"
@@ -186,7 +186,7 @@ i18n
                     p23: "Reimposta tabella",
                 },
                 prediction: {
-                    p1: "Scegli un immagine del mesencefalo e inviala al server. ",
+                    p1: "Scegli un'immagine del mesencefalo e inviala al server. ",
                     p2: "Il software di intelligenza artificiale restituirà un immagine dove la Substantia Nigra è evidenziata in rosso. ",
                     p3: "Immagine del mesencefalo ",
                     p4: "Substantia Nigra (in rosso)",
