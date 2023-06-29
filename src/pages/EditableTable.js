@@ -1,3 +1,7 @@
+///////////////////////////////////////
+// Substantia Nigra Artificial Intelligence
+// Copyright (C) 2023 Giansalvo Gusinu
+///////////////////////////////////////
 import React, { useState } from 'react'
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import { useForm } from "react-hook-form";

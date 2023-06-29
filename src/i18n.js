@@ -1,3 +1,8 @@
+///////////////////////////////////////
+// Substantia Nigra Artificial Intelligence
+// Copyright (C) 2023 Giansalvo Gusinu
+///////////////////////////////////////
+
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
