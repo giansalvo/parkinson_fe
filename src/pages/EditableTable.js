@@ -291,7 +291,7 @@ function EditableTable() {
           },
           {
             Header: t('dashboard.p10'),
-            accessor: 'user_name',
+            accessor: 'user_id',
           },
 
         ],
