@@ -56,12 +56,12 @@ i18n
                 p3: "g.gusinu@phd.uniss.it"
             },
             credits: {
-                p1: "This research was developed by Dr Giansalvo Gusinu, Dr Claudia Frau, Prof. Giuseppe A. Trunfio, Prof. Paolo Solla and Prof. Leonardo A. Sechi at ",
+                p1: "This research was developed by Giansalvo Gusinu, Dr Claudia Frau, Prof. Giuseppe A. Trunfio, Prof. Paolo Solla and Prof. Leonardo A. Sechi at ",
                 p2: "University of Sassari",
                 p3: "The website was realized in collaboration with the company ",
                 p4: " Abinsula ",
                 p5: ", one of the main Italian players in Embedded, IoT, Web and Mobile solutions. ",
-                p6: "The funds for the scholarship of Dr Giansalvo Gusinu were obtained from Italian Ministry of Education through ",
+                p6: "The funds for the scholarship of Giansalvo Gusinu were obtained from Italian Ministry of Education through ",
                 p7: "PON project 2014-2020"
             },
             dashboard: {
@@ -157,12 +157,12 @@ i18n
                     p3: "g.gusinu@phd.uniss.it"
                 },
                 credits: {
-                    p1: "Questa ricerca è stata condotta da Dr Giansalvo Gusinu, Dr Claudia Frau, Prof. Giuseppe A. Trunfio, Prof. Paolo Solla e dal Prof. Leonardo A. Sechi alla ",
+                    p1: "Questa ricerca è stata condotta da Dott Giansalvo Gusinu, Dott Claudia Frau, Prof. Giuseppe A. Trunfio, Prof. Paolo Solla e dal Prof. Leonardo A. Sechi alla ",
                     p2: "Università di Sassari",
                     p3: "Il sito web è stato realizzato in collaborazione con la società ",
                     p4: " Abinsula ",
                     p5: ", uno dei maggiori player italiani nei campi della tecnologia Embedded, IoT, Web e soluzioni mobile. ",
-                    p6: "I fondi per la formazione del Dr Giansalvo Gusinu sono stati ottenuti dal Ministero Italiano dell'Università e Ricerca attraverso il ",
+                    p6: "I fondi per la formazione del Dott Giansalvo Gusinu sono stati ottenuti dal Ministero Italiano dell'Università e Ricerca attraverso il ",
                     p7: "PON project 2014-2020"
                 },  
                 dashboard: {
