@@ -149,7 +149,7 @@ function AddAnnotation() {
 
         console.log("formData:", formData)
 
-        const url = "http://[::1]:8438/prediction/do-ground-truth/"
+        const url = "https://backend.parkinson.development.abidevops.website/prediction/do-ground-truth/"
         postAnnotationAPI(url, formData).then ( result => {
             setResponseAPI("Request was succefull.");
             alert("Request was succefull.");

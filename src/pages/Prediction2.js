@@ -259,7 +259,7 @@ function Prediction2() {
         <div className="row">
           <Uploady
             multiple={false}
-            destination={{ url: "http://[::1]:8438/prediction/do-prediction/" }}
+            destination={{ url: "https://backend.parkinson.development.abidevops.website/prediction/do-prediction/" }}
             // inputFieldContainer = "img-preview-wrapper"
             // method="GET"
             inputFieldName = "image"

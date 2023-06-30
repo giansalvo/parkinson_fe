@@ -13,8 +13,6 @@ import { Header } from "../components/shared/Header/Header";
 import { Footer } from "../components/shared/Footer/Footer";
 import request from "../utils/request";
 
-import "./Dashboard.css"
-
 const Styles = styled.div`
   padding: 1rem;
 
@@ -392,13 +390,14 @@ function EditableTable() {
       }
   
       console.log("param:"+param)
-      const url = "http://[::1]:8438/prediction/do-dashboard/" + param
+      const url = "https://backend.parkinson.development.abidevops.website/prediction/do-dashboard/" + param
       console.log(url)
 
       getUsersAPI(url).then(
         result => setData(result.data.predictions)
       )
   }
+
 
   function resetForm(){
     console.log("resetForm")

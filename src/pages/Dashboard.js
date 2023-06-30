@@ -100,7 +100,7 @@ function Dashboard() {
 
     console.log("param:"+param)
 
-    const url = "http://[::1]:8438/prediction/do-dashboard/" + param
+    const url = "https://backend.parkinson.development.abidevops.website/prediction/do-dashboard/" + param
     console.log(url)
 
     axios

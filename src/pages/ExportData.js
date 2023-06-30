@@ -28,7 +28,7 @@ function ExportData() {
   const fileName = "dataset_sn_ai"; // here enter filename for your excel file
 
   const isLoggedIn = Boolean(GetItem("logged_in"))
-  const url = "http://[::1]:8438/prediction/do-dashboard/"
+  const url = "https://backend.parkinson.development.abidevops.website/prediction/do-dashboard/"
 
   React.useEffect(() => {
     const fetchData = () =>{

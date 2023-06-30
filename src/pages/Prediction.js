@@ -77,7 +77,7 @@ function Prediction() {
 
         console.log("formData:", formData)
 
-        const url_param = "http://[::1]:8438/prediction/do-prediction/"
+        const url_param = "https://backend.parkinson.development.abidevops.website/prediction/do-prediction/"
         postPredictionAPI(url_param, formData).then(
           result =>  {
             // console.log("result.data ", result.data)

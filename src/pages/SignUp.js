@@ -46,7 +46,7 @@ export default function SignUp() {
 
     axios
     .post(
-        "http://[::1]:8438/auth/signup/",
+        "https://backend.parkinson.development.abidevops.website/auth/signup/",
         formData,
         {
             headers: {
