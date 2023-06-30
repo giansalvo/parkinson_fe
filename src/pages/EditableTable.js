@@ -13,8 +13,6 @@ import { Header } from "../components/shared/Header/Header";
 import { Footer } from "../components/shared/Footer/Footer";
 import request from "../utils/request";
 
-import "./Dashboard.css"
-
 const Styles = styled.div`
   padding: 1rem;
 
